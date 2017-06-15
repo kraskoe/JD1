@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Created by Yauheni Krasko on 13.06.2017.
  */
-public class task1CompareWords {
+public class Task1CompareWords {
     public static void main(String[] args) {
 
         Scanner wordsIn = new Scanner(System.in);

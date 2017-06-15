@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Created by Yauheni Krasko on 13.06.2017.
  */
-public class task2AddRublesVariantB {
+public class Task2AddRublesVariantB {
     public static void main(String[] args) {
         int rublesSum;
         Scanner sumIn = new Scanner(System.in);
@@ -14,39 +14,25 @@ public class task2AddRublesVariantB {
             System.out.println("Это не целое число!");
             return;
         }
-        String rublesString = Integer.toString(rublesSum);
 
-//        switch (rublesString.length()) {
-//            case 1:
-//                switch (Character.getNumericValue(rublesString.charAt(rublesString.length()-1))
-//        }
+        switch (rublesSum/10%10){
+            case 1:
+                System.out.println(rublesSum + " рублей");
+                break;
+            default:
+                switch (rublesSum%10){
+                    case 1:
+                        System.out.println(rublesSum + " рубль");
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                        System.out.println(rublesSum + " рубля");
+                        break;
+                    default:
+                        System.out.println(rublesSum + " рублей");
+                        break;
+                }
+        }
     }
 }
-
-
-
-
-//        if (rublesString.length() == 1) {
-//            if (Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) == 0 ||
-//                    (Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) >= 5 &&
-//                            Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) <= 9)) {
-//                System.out.println("Ваша сумма: " + rublesSum + " рублей");
-//            } else if (Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) == 1) {
-//                System.out.println("Ваша сумма: " + rublesSum + " рубль");
-//            } else if (Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) >= 2 &&
-//                    Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) <= 4) {
-//                System.out.println("Ваша сумма: " + rublesSum + " рубля");
-//            }
-//        } else if (Character.getNumericValue(rublesString.charAt(rublesString.length()-2)) == 1) {
-//            System.out.println("Ваша сумма: " + rublesSum + " рублей");
-//        } else if (Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) == 0 ||
-//                (Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) >= 5 &&
-//                        Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) <= 9)) {
-//            System.out.println("Ваша сумма: " + rublesSum + " рублей");
-//        } else if (Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) == 1) {
-//            System.out.println("Ваша сумма: " + rublesSum + " рубль");
-//        } else if (Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) >= 2 &&
-//                Character.getNumericValue(rublesString.charAt(rublesString.length()-1)) <= 4) {
-//            System.out.println("Ваша сумма: " + rublesSum + " рубля");
-//        }
-
