@@ -5,6 +5,18 @@ import java.math.*;
  */
 public class Practice {
     public static void main(String[] args) {
+
+//        int array[][] = {{3, 4, 2}, {1, 5}};
+//        for (int i = 0; i < array.length; i++){
+//            for (int j = 0; j < array[i].length; j++){
+//                System.out.print(array[i][j] + " ");
+//            }
+//        }
+
+//        String str = "111";
+//        http://oracle.com;
+//        System.out.println(str);
+
 //        BigDecimal bd = new BigDecimal(2.0);
 //        BigDecimal b1 = bd.subtract(new BigDecimal(1.1));
 //        System.out.println(b1);
