@@ -50,45 +50,59 @@ public class Bankomat {
                 switch (money % 100) {
                     case 0:
                         moneyCounter(money, 0);
+                        break;
                     case 50: {
                         moneyCounter(money, 50);
                         fifty = 1;
+                        break;
                     }
                     case 70: {
                         moneyCounter(money, 70);
                         fifty = 1;
                         twenty = 1;
+                        break;
                     }
                     case 90: {
                         moneyCounter(money, 90);
                         fifty = 1;
                         twenty = 2;
+                        break;
                     }
                     case 20: {
                         moneyCounter(money, 20);
                         twenty = 1;
+                        break;
                     }
                     case 40: {
                         moneyCounter(money, 40);
                         twenty = 2;
+                        break;
                     }
                     case 60: {
                         moneyCounter(money, 60);
                         twenty = 3;
+                        break;
                     }
                     case 80: {
                         moneyCounter(money, 80);
                         twenty = 4;
+                        break;
                     }
                     case 10: {
-                        moneyCounter(money, 110);
-                        fifty = 1;
-                        twenty = 3;
+                        if (money / 100 > 0){
+                            moneyCounter(money, 110);
+                            fifty = 1;
+                            twenty = 3;
+                        } else System.out.println("Money nominal is not available");
+                        break;
                     }
                     case 30: {
-                        moneyCounter(money, 130);
-                        fifty = 1;
-                        twenty = 4;
+                        if (money / 100 > 0){
+                            moneyCounter(money, 130);
+                            fifty = 1;
+                            twenty = 4;
+                        } else System.out.println("Money nominal is not available");
+                        break;
                     }
                 }
             } else {
