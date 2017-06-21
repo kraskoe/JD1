@@ -6,6 +6,17 @@ import java.math.*;
 public class Practice {
     public static void main(String[] args) {
 
+//        String a = 1 + "2";
+//        System.out.println(a);
+//        System.out.println(1 + "2");
+//        System.out.println("1" + 2);
+
+//        int i = -128;
+//        Integer oa = i;
+//        Integer ob = i;
+//        System.out.println(oa == i);
+//        System.out.println(oa == ob);
+
 //        int array[][] = {{3, 4, 2}, {1, 5}};
 //        for (int i = 0; i < array.length; i++){
 //            for (int j = 0; j < array[i].length; j++){
