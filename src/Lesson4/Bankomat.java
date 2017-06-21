@@ -52,61 +52,61 @@ public class Bankomat {
                         break;
                     case 50: {
                         if (bucks50 >= 1){
-                            moneyCounter(money, 50);
                             fifty = 1;
+                            moneyCounter(money, 50);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 70: {
                         if (bucks50 >= 1 && bucks20 >= 1){
-                            moneyCounter(money, 70);
                             fifty = 1;
                             twenty = 1;
+                            moneyCounter(money, 70);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 90: {
                         if (bucks50 >= 1 && bucks20 >= 2){
-                            moneyCounter(money, 90);
                             fifty = 1;
                             twenty = 2;
+                            moneyCounter(money, 90);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 20: {
                         if (bucks20 >= 1){
-                            moneyCounter(money, 20);
                             twenty = 1;
+                            moneyCounter(money, 20);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 40: {
                         if (bucks20 >= 2){
-                            moneyCounter(money, 40);
                             twenty = 2;
+                            moneyCounter(money, 40);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 60: {
                         if (bucks20 >= 3){
-                            moneyCounter(money, 60);
                             twenty = 3;
+                            moneyCounter(money, 60);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 80: {
                         if (bucks20 >= 4){
-                            moneyCounter(money, 80);
                             twenty = 4;
+                            moneyCounter(money, 80);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 10: {
                         if (money / 100 > 0){
                             if (bucks50 >= 1 && bucks20 >= 3){
-                                moneyCounter(money, 110);
                                 fifty = 1;
                                 twenty = 3;
+                                moneyCounter(money, 110);
                             } else System.out.println("Insufficient money");
                         } else System.out.println("Money nominal is not available");
                         break;
@@ -114,9 +114,9 @@ public class Bankomat {
                     case 30: {
                         if (money / 100 > 0){
                             if (bucks50 >= 1 && bucks20 >= 4){
-                                moneyCounter(money, 130);
                                 fifty = 1;
                                 twenty = 4;
+                                moneyCounter(money, 130);
                             } else System.out.println("Insufficient money");
                         } else System.out.println("Money nominal is not available");
                         break;
