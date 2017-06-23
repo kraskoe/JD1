@@ -9,32 +9,37 @@ public class WrapperBigDecimal {
     BigDecimal unifiedA;
     BigDecimal unifiedB;
 
-    public WrapperBigDecimal(long a, long b) {
-        Long firstArgument = a;
-        Long secondArgument = b;
-        unifiedA = new BigDecimal(firstArgument.toString());
-        unifiedB = new BigDecimal(secondArgument.toString());
-    }
+//    public WrapperBigDecimal(long a, long b) {
+//        Long firstArgument = a;
+//        Long secondArgument = b;
+//        unifiedA = new BigDecimal(firstArgument.toString());
+//        unifiedB = new BigDecimal(secondArgument.toString());
+//    }
+//
+//    public WrapperBigDecimal(long a, double b) {
+//        Long firstArgument = a;
+//        Double secondArgument = b;
+//        unifiedA = new BigDecimal(firstArgument.toString());
+//        unifiedB = new BigDecimal(secondArgument.toString());
+//    }
+//
+//    public WrapperBigDecimal(double a, long b) {
+//        Double firstArgument = a;
+//        Long secondArgument = b;
+//        unifiedA = new BigDecimal(firstArgument.toString());
+//        unifiedB = new BigDecimal(secondArgument.toString());
+//    }
+//
+//    public WrapperBigDecimal(double a, double b) {
+//        Double firstArgument = a;
+//        Double secondArgument = b;
+//        unifiedA = new BigDecimal(firstArgument.toString());
+//        unifiedB = new BigDecimal(secondArgument.toString());
+//    }
 
-    public WrapperBigDecimal(long a, double b) {
-        Long firstArgument = a;
-        Double secondArgument = b;
-        unifiedA = new BigDecimal(firstArgument.toString());
-        unifiedB = new BigDecimal(secondArgument.toString());
-    }
-
-    public WrapperBigDecimal(double a, long b) {
-        Double firstArgument = a;
-        Long secondArgument = b;
-        unifiedA = new BigDecimal(firstArgument.toString());
-        unifiedB = new BigDecimal(secondArgument.toString());
-    }
-
-    public WrapperBigDecimal(double a, double b) {
-        Double firstArgument = a;
-        Double secondArgument = b;
-        unifiedA = new BigDecimal(firstArgument.toString());
-        unifiedB = new BigDecimal(secondArgument.toString());
+    public WrapperBigDecimal(Number a, Number b) {
+        unifiedA = new BigDecimal(a.toString());
+        unifiedB = new BigDecimal(b.toString());
     }
 
     public BigDecimal addUnified() {

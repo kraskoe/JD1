@@ -5,25 +5,26 @@ package Lesson6;
  */
 public class TrainingGround {
     public static void main(String[] args) {
-        Enemy myEnemy = new Enemy(75);
+        Enemy dummy = new Enemy(75);
 
-        Hero avalon = new Hero("Avalon", 7);
+        Warrior rufus = new Warrior("Rufus", 5, 80);
 
-        System.out.println(avalon.getHeroName());
+        rufus.attackEnemy(dummy);
 
-        avalon.attackEnemy(myEnemy);
+        Mage hellrain = new Mage("HellRain", 10, 30);
 
-        Warrior rufus = new Warrior("Rufus", 5);
+        hellrain.attackEnemy(dummy);
 
-        rufus.attackEnemy(myEnemy);
+        Archer eagleeye = new Archer("EagleEye", 7, 50);
 
-        Mage hellrain = new Mage("HellRain", 10);
+        eagleeye.attackEnemy(dummy);
 
-        hellrain.attackEnemy(myEnemy);
+        while (dummy.isAlive()){
+            rufus.attackEnemy(dummy);
+        }
 
-        Archer eagleeye = new Archer("EagleEye", 7);
+        Enemy zombee = new Enemy();
 
-        eagleeye.attackEnemy(myEnemy);
 
     }
 }
