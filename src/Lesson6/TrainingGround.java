@@ -23,7 +23,7 @@ public class TrainingGround {
             rufus.attackEnemy(dummy);
         }
 
-        Enemy zombee = new Enemy();
+//        Enemy zombee = new Enemy();
 
 
     }
