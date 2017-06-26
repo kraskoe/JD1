@@ -6,9 +6,9 @@ package Heroes;
 public abstract class Personage implements Mortal{
     private String name;
     private double health;
-    private int armor, piercingArmor, resistance;
+    private double armor, piercingArmor, resistance;
 
-    public Personage(String nam, double hlth, int arm, int parm, int res){
+    public Personage(String nam, double hlth, double arm, double parm, double res){
         name = nam;
         health = hlth;
         armor = arm;
@@ -29,15 +29,15 @@ public abstract class Personage implements Mortal{
         }
     }
 
-    public int getArmor(){
+    public double getArmor(){
         return armor;
     }
 
-    public int getPiercingArmor(){
+    public double getPiercingArmor(){
         return piercingArmor;
     }
 
-    public int getResistance(){
+    public double getResistance(){
         return resistance;
     }
 
@@ -64,9 +64,4 @@ public abstract class Personage implements Mortal{
             return true;
         } else return  false;
     }
-
-    public abstract void attackEnemy(Enemy enemy);
-    public abstract void takeDamage(Enemy enemy);
-
-
 }

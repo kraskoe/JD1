@@ -6,7 +6,7 @@ package Heroes;
 public abstract class Enemy extends Personage {
     private double damage, piercingDamage, magicalDamage;
 
-    public Enemy (String nam, double hlth, int arm, int parm, int res, double dam, double pDam, double mDam){
+    public Enemy (String nam, double hlth, double arm, double parm, double res, double dam, double pDam, double mDam){
         super(nam, hlth, arm, parm, res);
         damage = dam;
         piercingDamage = pDam;
