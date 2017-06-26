@@ -90,6 +90,19 @@ public class Practice {
         System.out.println(((Car) car2).speed);
         ((Car) car2).moveStatic();
 
+//        int x = 100;
+//
+//    void demo() {
+//        final int y = 50;
+//        class B {
+//            void printy() {
+//                System.out.println(y);
+//            }
+//        }
+//        y = 70;
+//    }
+
+
     }
 
 

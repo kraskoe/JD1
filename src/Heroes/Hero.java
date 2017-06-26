@@ -46,6 +46,4 @@ public abstract class Hero extends Personage implements Human {
             return true;
         } else return false;
     }
-
-    public abstract boolean isAlive();
 }
