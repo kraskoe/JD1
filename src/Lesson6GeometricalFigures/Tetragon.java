@@ -6,26 +6,25 @@ import Heroes.Personage;
  * Created by User on 30.06.2017.
  */
 public class Tetragon extends Figure implements Tetra {
-    String name = "tetragon";
     protected Point upperLeft,upperRight, bottomLeft, bottomRight;
-    protected  double aSide, bSide, cSide, dSide;
+    protected double aSide, bSide, cSide, dSide;
     double halfPerimeter;
 
-    public double getASide(){
-        return aSide;
-    }
-
-    public double getBSide(){
-        return bSide;
-    }
-
-    public double getCSide(){
-        return cSide;
-    }
-
-    public double getDSide(){
-        return dSide;
-    }
+//    public double getASide(){
+//        return aSide;
+//    }
+//
+//    public double getBSide(){
+//        return bSide;
+//    }
+//
+//    public double getCSide(){
+//        return cSide;
+//    }
+//
+//    public double getDSide(){
+//        return dSide;
+//    }
 
     Tetragon (Point a, Point b, Point c, Point d){
         upperLeft = a;
@@ -36,6 +35,7 @@ public class Tetragon extends Figure implements Tetra {
         bSide = b.distance(c);
         cSide = c.distance(d);
         dSide = d.distance(a);
+        name = "tetragon";
     }
 
     Tetragon (double a, double b, double c, double d){
@@ -43,7 +43,10 @@ public class Tetragon extends Figure implements Tetra {
         bSide = b;
         cSide = c;
         dSide = d;
+        name = "tetragon";
     }
+
+    Tetragon (){};
 
     public double getPerimeter(){
         return aSide + bSide + cSide + dSide;
@@ -62,10 +65,6 @@ public class Tetragon extends Figure implements Tetra {
         return upperRight.distance(bottomLeft);
     }
 
-    @Override
-    public String toString(){
-        return "Figure: " + this.getName() + ". Perimeter: " + this.getPerimeter()+ ". Square: " + this.getSquare();
-    }
 }
 
 

@@ -4,7 +4,7 @@ package Lesson6GeometricalFigures;
  * Created by User on 30.06.2017.
  */
 public abstract class Figure implements FigureMethods {
-    private String name = "figure";
+    protected String name = "figure";
 
     public String getName(){
         return name;
@@ -14,7 +14,7 @@ public abstract class Figure implements FigureMethods {
 
     public abstract double getPerimeter();
 
-    <T extends Figure> void compareFigures(T figure){
+    public <T extends Figure> void compareFigures(T figure){
         switch (this.getSquare() > figure.getSquare() ? 1 : this.getSquare() == figure.getSquare() ? 0 : -1) {
             case -1:
                 System.out.println("The square of first figure is less than second");
@@ -28,4 +28,8 @@ public abstract class Figure implements FigureMethods {
         }
     }
 
+    @Override
+    public String toString(){
+        return "Figure: " + this.getName() + ". Perimeter: " + this.getPerimeter()+ ". Square: " + this.getSquare();
+    }
 }

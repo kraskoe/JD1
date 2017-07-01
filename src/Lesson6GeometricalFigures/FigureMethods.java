@@ -8,5 +8,5 @@ public interface FigureMethods {
 
     double getSquare();
 
-//    boolean compareFigures();
+    <T extends Figure> void compareFigures(T figure);
 }
