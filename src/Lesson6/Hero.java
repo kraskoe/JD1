@@ -7,33 +7,33 @@ public abstract class Hero implements Mortal {
     private String name;
     private int damage, health;
 
-    public Hero(String nam, int dam, int hlth){
+    public Hero(String nam, int dam, int hlth) {
         name = nam;
         damage = dam;
         health = hlth;
     }
 
-    public int getHeroDamage(){
+    public int getHeroDamage() {
         return damage;
     }
 
-    public int getHeroHealth(){
+    public int getHeroHealth() {
         return health;
     }
 
-    public String getHeroName(){
+    public String getHeroName() {
         return name;
     }
 
-    public void takeDamage(int damage){
+    public void takeDamage(int damage) {
         health -= damage;
         System.out.println("Current " + getHeroName() + " health: " + getHeroHealth());
     }
 
-    public boolean isAlive(){
-        if (health > 0){
+    public boolean isAlive() {
+        if (health > 0) {
             return true;
-        } else return  false;
+        } else return false;
     }
 
     public abstract void attackEnemy(Enemy x);

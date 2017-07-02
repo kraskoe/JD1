@@ -10,16 +10,16 @@ public class Task8RandomCardsArray {
         String[] playingCardsArray = new String[52];
         String[] cardsArray = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
         String[] suitsArray = {"Hearts", "Spades", "Clubs", "Diamonds"};
-        int counter =0;
+        int counter = 0;
 
-        for (int i = 0; i < 13; i++){
-            for (int j = 0; j < 4; j++){
+        for (int i = 0; i < 13; i++) {
+            for (int j = 0; j < 4; j++) {
                 playingCardsArray[counter] = cardsArray[i] + "Of" + suitsArray[j];
                 counter++;
             }
         }
 
-        for (int i = 0; i < playingCardsArray.length; i++){
+        for (int i = 0; i < playingCardsArray.length; i++) {
             System.out.print(playingCardsArray[i] + " ");
         }
 
@@ -27,7 +27,7 @@ public class Task8RandomCardsArray {
         System.out.println("");
         System.out.println("");
 
-        for (int i = 0; i < playingCardsArray.length; i++){
+        for (int i = 0; i < playingCardsArray.length; i++) {
             System.out.println(playingCardsArray[i]);
         }
 
@@ -47,9 +47,9 @@ public class Task8RandomCardsArray {
 
     }
 
-    static void shuffleCardsArray(String[] array){
+    static void shuffleCardsArray(String[] array) {
         Random shuffle = new Random();
-        for (int i = array.length-1; i >= 0; i--){
+        for (int i = array.length - 1; i >= 0; i--) {
             int index = shuffle.nextInt(i + 1);
             String a = array[index];
             array[index] = array[i];

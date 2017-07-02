@@ -19,7 +19,7 @@ public class TrainingGround {
 
         eagleeye.attackEnemy(dummy);
 
-        while (dummy.isAlive()){
+        while (dummy.isAlive()) {
             rufus.attackEnemy(dummy);
         }
 

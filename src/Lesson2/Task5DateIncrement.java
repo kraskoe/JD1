@@ -14,11 +14,11 @@ public class Task5DateIncrement {
         int month = input.nextInt();
         System.out.println("Enter the year:");
         int year = input.nextInt();
-        boolean leapYear ;
+        boolean leapYear;
 
-        if (year%4 == 0) {
-            if (year%100 == 0) {
-                if (year%400 == 0) {
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
                     leapYear = true;
                 } else {
                     leapYear = false;
@@ -37,14 +37,14 @@ public class Task5DateIncrement {
             case 7:
             case 8:
             case 10:
-                if (day >=1 && day <=30) {
+                if (day >= 1 && day <= 30) {
                     System.out.println(++day + "." + month + "." + year);
                 } else {
                     System.out.println(1 + "." + ++month + "." + year);
                 }
                 break;
             case 12:
-                if (day >=1 && day <=30) {
+                if (day >= 1 && day <= 30) {
                     System.out.println(++day + "." + month + "." + year);
                 } else {
                     System.out.println(1 + "." + 1 + "." + ++year);
@@ -54,26 +54,27 @@ public class Task5DateIncrement {
             case 6:
             case 9:
             case 11:
-                if (day >=1 && day <=29) {
+                if (day >= 1 && day <= 29) {
                     System.out.println(++day + "." + month + "." + year);
                 } else {
                     System.out.println(1 + "." + ++month + "." + year);
                 }
                 break;
             case 2:
-                if (leapYear ==true) {
-                    if (day >=1 && day <=28) {
+                if (leapYear == true) {
+                    if (day >= 1 && day <= 28) {
                         System.out.println(++day + "." + month + "." + year);
                     } else {
                         System.out.println(1 + "." + ++month + "." + year);
                     }
-                } else if (day >=1 && day <=27) {
+                } else if (day >= 1 && day <= 27) {
                     System.out.println(++day + "." + month + "." + year);
                 } else {
                     System.out.println(1 + "." + ++month + "." + year);
                 }
                 break;
-            default: System.out.println("Введенная дата нереальна");
+            default:
+                System.out.println("Введенная дата нереальна");
                 break;
         }
     }

@@ -9,7 +9,7 @@ public class Task7RandomCardFromDeck {
     public static void main(String[] args) {
         String randomCard = new String();
 
-        switch (randomCard()){
+        switch (randomCard()) {
             case 0:
                 randomCard += "Ace";
                 break;
@@ -48,7 +48,7 @@ public class Task7RandomCardFromDeck {
                 break;
         }
 
-        switch (randomSuit()){
+        switch (randomSuit()) {
             case 0:
                 randomCard += "OfHearts";
                 break;
@@ -66,12 +66,12 @@ public class Task7RandomCardFromDeck {
         System.out.println(randomCard);
     }
 
-    static int randomCard(){
+    static int randomCard() {
         final Random randomNumber = new Random();
         return randomNumber.nextInt(12);
     }
 
-    static int randomSuit(){
+    static int randomSuit() {
         final Random randomNumber = new Random();
         return randomNumber.nextInt(4);
     }

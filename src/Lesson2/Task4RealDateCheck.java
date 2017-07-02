@@ -17,9 +17,9 @@ public class Task4RealDateCheck {
 
         boolean leapYear = false;
 
-        if (year%4 == 0) {
-            if (year%100 == 0) {
-                if (year%400 == 0) {
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
                     leapYear = true;
                 } else {
                     leapYear = false;
@@ -39,7 +39,7 @@ public class Task4RealDateCheck {
             case 8:
             case 10:
             case 12:
-                if (day >=1 && day <=31) {
+                if (day >= 1 && day <= 31) {
                     System.out.println("Введенная дата реальна");
                 } else {
                     System.out.println("Введенная дата нереальна");
@@ -49,26 +49,27 @@ public class Task4RealDateCheck {
             case 6:
             case 9:
             case 11:
-                if (day >=1 && day <=30) {
+                if (day >= 1 && day <= 30) {
                     System.out.println("Введенная дата реальна");
                 } else {
                     System.out.println("Введенная дата нереальна");
                 }
                 break;
             case 2:
-                if (leapYear ==true) {
-                    if (day >=1 && day <=29) {
+                if (leapYear == true) {
+                    if (day >= 1 && day <= 29) {
                         System.out.println("Введенная дата реальна");
                     } else {
                         System.out.println("Введенная дата нереальна");
                     }
-                } else if (day >=1 && day <=28) {
+                } else if (day >= 1 && day <= 28) {
                     System.out.println("Введенная дата реальна");
                 } else {
                     System.out.println("Введенная дата нереальна");
                 }
                 break;
-            default: System.out.println("Введенная дата нереальна");
+            default:
+                System.out.println("Введенная дата нереальна");
                 break;
         }
     }

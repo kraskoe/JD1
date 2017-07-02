@@ -3,12 +3,12 @@ package Heroes;
 /**
  * Created by User on 24.06.2017.
  */
-public abstract class Personage implements Mortal{
+public abstract class Personage implements Mortal {
     private String name;
     private double health;
     private double armor, piercingArmor, resistance;
 
-    public Personage(String nam, double hlth, double arm, double parm, double res){
+    public Personage(String nam, double hlth, double arm, double parm, double res) {
         name = nam;
         health = hlth;
         armor = arm;
@@ -16,12 +16,12 @@ public abstract class Personage implements Mortal{
         resistance = res;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public double getHealth(){
-        if (health > 0){
+    public double getHealth() {
+        if (health > 0) {
             return health;
         } else {
             health = 0;
@@ -29,19 +29,19 @@ public abstract class Personage implements Mortal{
         }
     }
 
-    public double getArmor(){
+    public double getArmor() {
         return armor;
     }
 
-    public double getPiercingArmor(){
+    public double getPiercingArmor() {
         return piercingArmor;
     }
 
-    public double getResistance(){
+    public double getResistance() {
         return resistance;
     }
 
-    public void setHealth(double hlth){
+    public void setHealth(double hlth) {
         health = hlth;
     }
 
@@ -59,9 +59,9 @@ public abstract class Personage implements Mortal{
 //        resistance = res;
 //    }
 
-    public boolean isAlive(){
-        if (health > 0){
+    public boolean isAlive() {
+        if (health > 0) {
             return true;
-        } else return  false;
+        } else return false;
     }
 }

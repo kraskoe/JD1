@@ -6,6 +6,7 @@ package Practice;
 public class PassengerCar extends Car {
 
     String speed = "Passenger Practice.Car Speed = 90";
+
     @Override
     public void move() {
         System.out.println("I move fast");

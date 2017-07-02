@@ -17,12 +17,12 @@ public class Task2AddRublesVariantB {
             return;
         }
 
-        switch (rublesSum/10%10){
+        switch (rublesSum / 10 % 10) {
             case 1:
                 System.out.println(rublesSum + " рублей");
                 break;
             default:
-                switch (rublesSum%10){
+                switch (rublesSum % 10) {
                     case 1:
                         System.out.println(rublesSum + " рубль");
                         break;

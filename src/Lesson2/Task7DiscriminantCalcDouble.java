@@ -20,17 +20,17 @@ public class Task7DiscriminantCalcDouble {
 
         double d = discriminant(a, b, c);
 
-        if (isPositive(d)){
+        if (isPositive(d)) {
             x1 = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
             x2 = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
             System.out.println("Полученные корни уравнения: x1=" + x1 + " x2=" + x2);
-        } else if (izZero(d)){
+        } else if (izZero(d)) {
             x = -b / (2 * a);
             System.out.println("Уравнение имеет единственный корень х=" + x);
         } else System.out.println("Уравнение не имеет вещественных корней");
     }
 
-    static double discriminant(double rootA, double rootB, double rootC){
+    static double discriminant(double rootA, double rootB, double rootC) {
         double a = rootA;
         double b = rootB;
         double c = rootC;
@@ -38,15 +38,15 @@ public class Task7DiscriminantCalcDouble {
         return discr;
     }
 
-    static boolean isPositive(double d){
-        if (d >0) {
+    static boolean isPositive(double d) {
+        if (d > 0) {
             return true;
         } else {
             return false;
         }
     }
 
-    static boolean izZero (double d){
+    static boolean izZero(double d) {
         if (d == 0) {
             return true;
         } else {

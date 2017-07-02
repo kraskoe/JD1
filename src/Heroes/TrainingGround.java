@@ -9,7 +9,7 @@ public class TrainingGround {
 
         Zombie zmb1 = new Zombie("Dumb zombie", 80, 0.9, 0.8, 0.6, 7, 0, 0);
 
-        while (war1.isAlive() && zmb1.isAlive()){
+        while (war1.isAlive() && zmb1.isAlive()) {
             war1.attackEnemy(zmb1);
             zmb1.attackEnemy(war1);
         }

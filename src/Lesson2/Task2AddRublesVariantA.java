@@ -45,19 +45,19 @@ public class Task2AddRublesVariantA {
 
         char[] charArray = Integer.toString(rublesSum).toCharArray();
         int[] intArray = new int[charArray.length];
-        for (int i = 0; i<charArray.length; i++) {
+        for (int i = 0; i < charArray.length; i++) {
 //            intArray[i] = Character.getNumericValue(charArray[i]);
             intArray[i] = Character.digit(charArray[i], 10);
         }
-        System.out.println(intArray[intArray.length-2]);
-        if (intArray[intArray.length-2] == 1) {
+        System.out.println(intArray[intArray.length - 2]);
+        if (intArray[intArray.length - 2] == 1) {
             System.out.println("Ваша сумма: " + rublesSum + " рублей");
-        } else if (intArray[intArray.length-1] == 0 ||
-                (intArray[intArray.length-1] >= 5 && intArray[intArray.length-1] <= 9)) {
+        } else if (intArray[intArray.length - 1] == 0 ||
+                (intArray[intArray.length - 1] >= 5 && intArray[intArray.length - 1] <= 9)) {
             System.out.println("Ваша сумма: " + rublesSum + " рублей");
-        } else if (intArray[intArray.length-1] == 1) {
+        } else if (intArray[intArray.length - 1] == 1) {
             System.out.println("Ваша сумма: " + rublesSum + " рубль");
-        } else if (intArray[intArray.length-1] >= 2 && intArray[intArray.length-1] <= 4) {
+        } else if (intArray[intArray.length - 1] >= 2 && intArray[intArray.length - 1] <= 4) {
             System.out.println("Ваша сумма: " + rublesSum + " рубля");
         }
     }

@@ -8,14 +8,14 @@ public class Task10Factorial {
         int numberForFactorial = 10;
         long factorial1 = 1, factorial2 = 1;
 
-        for (int i = 1; i <= numberForFactorial; i++){
+        for (int i = 1; i <= numberForFactorial; i++) {
             factorial1 *= i;
         }
 
         System.out.println(factorial1);
 
         int i = numberForFactorial;
-        while (i > 0){
+        while (i > 0) {
             factorial2 *= i--;
         }
 

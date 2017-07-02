@@ -12,6 +12,7 @@ public class Car {
 
 
     String speed = "Practice.Car Speed = 50";
+
     public void move() {
         System.out.println("I can move");
     }

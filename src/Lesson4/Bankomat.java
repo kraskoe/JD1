@@ -51,14 +51,14 @@ public class Bankomat {
                         moneyCounter(money, 0);
                         break;
                     case 50: {
-                        if (bucks50 >= 1){
+                        if (bucks50 >= 1) {
                             fifty = 1;
                             moneyCounter(money, 50);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 70: {
-                        if (bucks50 >= 1 && bucks20 >= 1){
+                        if (bucks50 >= 1 && bucks20 >= 1) {
                             fifty = 1;
                             twenty = 1;
                             moneyCounter(money, 70);
@@ -66,7 +66,7 @@ public class Bankomat {
                         break;
                     }
                     case 90: {
-                        if (bucks50 >= 1 && bucks20 >= 2){
+                        if (bucks50 >= 1 && bucks20 >= 2) {
                             fifty = 1;
                             twenty = 2;
                             moneyCounter(money, 90);
@@ -74,36 +74,36 @@ public class Bankomat {
                         break;
                     }
                     case 20: {
-                        if (bucks20 >= 1){
+                        if (bucks20 >= 1) {
                             twenty = 1;
                             moneyCounter(money, 20);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 40: {
-                        if (bucks20 >= 2){
+                        if (bucks20 >= 2) {
                             twenty = 2;
                             moneyCounter(money, 40);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 60: {
-                        if (bucks20 >= 3){
+                        if (bucks20 >= 3) {
                             twenty = 3;
                             moneyCounter(money, 60);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 80: {
-                        if (bucks20 >= 4){
+                        if (bucks20 >= 4) {
                             twenty = 4;
                             moneyCounter(money, 80);
                         } else System.out.println("Insufficient money");
                         break;
                     }
                     case 10: {
-                        if (money / 100 > 0){
-                            if (bucks50 >= 1 && bucks20 >= 3){
+                        if (money / 100 > 0) {
+                            if (bucks50 >= 1 && bucks20 >= 3) {
                                 fifty = 1;
                                 twenty = 3;
                                 moneyCounter(money, 110);
@@ -112,8 +112,8 @@ public class Bankomat {
                         break;
                     }
                     case 30: {
-                        if (money / 100 > 0){
-                            if (bucks50 >= 1 && bucks20 >= 4){
+                        if (money / 100 > 0) {
+                            if (bucks50 >= 1 && bucks20 >= 4) {
                                 fifty = 1;
                                 twenty = 4;
                                 moneyCounter(money, 130);

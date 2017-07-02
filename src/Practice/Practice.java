@@ -6,11 +6,12 @@ package Practice;
 public class Practice {
     public static void main(String[] args) {
 
+//        System.out.printf("This \n is \n new line");
 
 //        String a = 1 + "2";
 //        System.out.println(a);
 //        System.out.println(1 + "2");
-//        System.out.println("1" + 2);
+//        System.out.println("1" + 2);f
 //        int i = -128;
 //        Integer oa = i;
 //        Integer ob = i;
@@ -68,27 +69,27 @@ public class Practice {
 //        System.out.println(2 + 3 == 5);
 //        System.out.println("Hello!");
 
-        Car car = new PassengerCar();
-        car.move();
-        System.out.println(car.speed);
-        System.out.println("");
-
-        ((Car) car).move();
-        System.out.println(((Car) car).speed);
-        System.out.println("");
-
-        car = (Car) car;
-        car.move();
-        System.out.println(car.speed);
-        System.out.println("");
-
-
-        PassengerCar car2 = new PassengerCar();
-        car2.move();
-        System.out.println(car2.speed);
-        ((Car) car2).move();
-        System.out.println(((Car) car2).speed);
-        ((Car) car2).moveStatic();
+//        Car car = new PassengerCar();
+//        car.move();
+//        System.out.println(car.speed);
+//        System.out.println("");
+//
+//        ((Car) car).move();
+//        System.out.println(((Car) car).speed);
+//        System.out.println("");
+//
+//        car = (Car) car;
+//        car.move();
+//        System.out.println(car.speed);
+//        System.out.println("");
+//
+//
+//        PassengerCar car2 = new PassengerCar();
+//        car2.move();
+//        System.out.println(car2.speed);
+//        ((Car) car2).move();
+//        System.out.println(((Car) car2).speed);
+//        ((Car) car2).moveStatic();
 
 //        int x = 100;
 //

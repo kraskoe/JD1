@@ -9,28 +9,28 @@ public class WrapperBigDecimal {
     BigDecimal unifiedA;
     BigDecimal unifiedB;
 
-//    public WrapperBigDecimal(long a, long b) {
+//    public Calculator(long a, long b) {
 //        Long firstArgument = a;
 //        Long secondArgument = b;
 //        unifiedA = new BigDecimal(firstArgument.toString());
 //        unifiedB = new BigDecimal(secondArgument.toString());
 //    }
 //
-//    public WrapperBigDecimal(long a, double b) {
+//    public Calculator(long a, double b) {
 //        Long firstArgument = a;
 //        Double secondArgument = b;
 //        unifiedA = new BigDecimal(firstArgument.toString());
 //        unifiedB = new BigDecimal(secondArgument.toString());
 //    }
 //
-//    public WrapperBigDecimal(double a, long b) {
+//    public Calculator(double a, long b) {
 //        Double firstArgument = a;
 //        Long secondArgument = b;
 //        unifiedA = new BigDecimal(firstArgument.toString());
 //        unifiedB = new BigDecimal(secondArgument.toString());
 //    }
 //
-//    public WrapperBigDecimal(double a, double b) {
+//    public Calculator(double a, double b) {
 //        Double firstArgument = a;
 //        Double secondArgument = b;
 //        unifiedA = new BigDecimal(firstArgument.toString());
