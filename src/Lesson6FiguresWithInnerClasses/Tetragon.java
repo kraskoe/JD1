@@ -9,22 +9,6 @@ public class Tetragon extends Figure {
     double halfPerimeter;
     public Diagonal diagonal;
 
-//    public double getASide(){
-//        return aSide;
-//    }
-//
-//    public double getBSide(){
-//        return bSide;
-//    }
-//
-//    public double getCSide(){
-//        return cSide;
-//    }
-//
-//    public double getDSide(){
-//        return dSide;
-//    }
-
     Tetragon(Point a, Point b, Point c, Point d) {
         upperLeft = a;
         upperRight = b;
@@ -62,6 +46,7 @@ public class Tetragon extends Figure {
         System.out.printf("Figure: %s. First diagonal: %f. Second diagonal: %f. \n", name, diagonal.getDiagonalA(), diagonal.getDiagonalB());
     }
 
+    //Inner class Diagonal
     class Diagonal {
         private double diagonalA, diagonalB;
 

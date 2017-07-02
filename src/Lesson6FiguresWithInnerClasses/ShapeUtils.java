@@ -15,4 +15,11 @@ public class ShapeUtils {
             return true;
         } else return false;
     }
+
+    //Static nested class
+    public static class PrintCheck{
+        public static void printCheck(){
+            System.out.println("This is check for instance");
+        }
+    }
 }

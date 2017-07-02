@@ -9,18 +9,6 @@ public class Trigon extends Figure {
     protected double halfPerimeter;
     public Altitude altitude;
 
-//    public double getASide(){
-//        return aSide;
-//    }
-//
-//    public double getBSide(){
-//        return bSide;
-//    }
-//
-//    public double getCSide(){
-//        return cSide;
-//    }
-
     Trigon (Point a, Point b, Point c){
         firstPoint = a;
         secondPoint = b;
@@ -58,6 +46,7 @@ public class Trigon extends Figure {
         System.out.printf("Figure: %s. Altitude: %f.\n", name, altitude.getAltitude());
     }
 
+    //Inner class
     class Altitude {
         private double alt;
 
@@ -70,6 +59,4 @@ public class Trigon extends Figure {
             return alt;
         }
     }
-
-
 }
