@@ -5,10 +5,11 @@ package Lesson7;
  */
 public class TestLesson7 {
     public static void main(String[] args) {
-        Pair pairA = new Pair(new Double("2.1"), new Integer(5));
+        Pair <Double, Integer> pairA = new Pair <>(new Double("2.1"), new Integer(5));
         System.out.println(pairA.toString());
-        Pair pairB = PairUtil.swap(pairA);
+        Pair <Integer, Double> pairB = PairUtil.swap(pairA);
         System.out.println(pairB.toString());
+
 
     }
 }
