@@ -12,12 +12,20 @@ public class CalculatorTest {
         int d = 9;
 
 
-        Calculator newWrapper1 = new Calculator(3.9, 3.2);
+        Calculator <Number> newWrapper1 = new Calculator <>(3.9, 3.2);
         System.out.println(newWrapper1.addUnified());
         System.out.println(newWrapper1.divideUnified());
 
-        Calculator newWrapper2 = new Calculator(2, 1.1);
+        Calculator <Number> newWrapper2 = new Calculator <>(2, 1.1);
         System.out.println(newWrapper2.subtractUnified());
         System.out.println(newWrapper2.multiplyUnified());
+
+        Calculator <Number> newWrapper3 = new Calculator <>(a, b);
+        System.out.println(newWrapper3.subtractUnified());
+        System.out.println(newWrapper3.multiplyUnified());
+
+        Calculator <Number> newWrapper4 = new Calculator <>(c, d);
+        System.out.println(newWrapper4.subtractUnified());
+        System.out.println(newWrapper4.multiplyUnified());
     }
 }
