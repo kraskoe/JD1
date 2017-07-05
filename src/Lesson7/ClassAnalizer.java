@@ -10,12 +10,7 @@ import java.lang.reflect.Method;
  */
 public class ClassAnalizer {
     public static void analyze(Object obj){
-        try {
-            analyze(obj.getClass());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        analyze(obj.getClass());
     }
 
     public static void analyze(Class cl){
@@ -23,19 +18,19 @@ public class ClassAnalizer {
             Constructor[] constructors = cl.getDeclaredConstructors();
             for (Constructor c : constructors){
                 System.out.println("Constructor: " + c);
-                getAnnos(c);
+                getAnnos(cl);
             }
 
             Field[] fields = cl.getDeclaredFields();
             for (Field f : fields){
                 System.out.println("Field: " + f);
-                getAnnos(f);
+                getAnnos(cl);
             }
 
             Method[] methods = cl.getDeclaredMethods();
             for (Method m : methods){
                 System.out.println("Method: " + m);
-                getAnnos(m);
+                getAnnos(cl);
             }
 
             getAnnos(cl);
@@ -46,27 +41,6 @@ public class ClassAnalizer {
         }
     }
     public static void getAnnos(Class cls){
-        Annotation[] annos = cls.getDeclaredAnnotations();
-        for (Annotation a : annos){
-            System.out.println("Annotation: " + a);
-        }
-    }
-
-    public static void getAnnos(Constructor cls){
-        Annotation[] annos = cls.getDeclaredAnnotations();
-        for (Annotation a : annos){
-            System.out.println("Annotation: " + a);
-        }
-    }
-
-    public static void getAnnos(Field cls){
-        Annotation[] annos = cls.getDeclaredAnnotations();
-        for (Annotation a : annos){
-            System.out.println("Annotation: " + a);
-        }
-    }
-
-    public static void getAnnos(Method cls){
         Annotation[] annos = cls.getDeclaredAnnotations();
         for (Annotation a : annos){
             System.out.println("Annotation: " + a);
