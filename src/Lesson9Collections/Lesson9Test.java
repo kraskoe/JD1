@@ -14,14 +14,14 @@ public class Lesson9Test {
     public static void main(String[] args) {
         final int ELEMENT_SIZE = 10;
 
-        List pupils = new ArrayList();
+        List <String> pupils = new ArrayList <>();
         for (Pupils p : Pupils.values()){
-            pupils.add(p);
+            pupils.add(p.getName());
         }
 
-        List subjects = new ArrayList();
+        List <String> subjects = new ArrayList <>();
         for (Subjects s : Subjects.values()){
-            subjects.add(s);
+            subjects.add(s.getValue());
         }
 
         //Task 1
@@ -31,8 +31,8 @@ public class Lesson9Test {
 
         for (int i = 0; i < ELEMENT_SIZE; i++){
             listIter.add((new Mark(new Random().nextInt(10) + 1,
-                    pupils.get(new Random().nextInt(pupils.size())).toString(),
-                    subjects.get(new Random().nextInt(subjects.size())).toString())));
+                    pupils.get(new Random().nextInt(pupils.size())),
+                    subjects.get(new Random().nextInt(subjects.size())))));
             System.out.println(pupilsMarks.get(i));
         }
 
@@ -71,8 +71,8 @@ public class Lesson9Test {
 
         for (int i = 0; i < ELEMENT_SIZE; i++){
             listIter2.add((new Mark(new Random().nextInt(10) + 1,
-                    pupils.get(new Random().nextInt(pupils.size())).toString(),
-                    subjects.get(new Random().nextInt(subjects.size())).toString())));
+                    pupils.get(new Random().nextInt(pupils.size())),
+                    subjects.get(new Random().nextInt(subjects.size())))));
             System.out.println(pupilsMarks2.get(i));
         }
 
@@ -134,32 +134,52 @@ public class Lesson9Test {
                 " quis nibh tempus, non volutpat enim ullamcorper. Mauris at tortor vestibulum, accumsan turpis quis," +
                 " elementum lacus. Nam fermentum cursus neque ac faucibus. Proin auctor vel sem eget volutpat.";
 
-        List <String> wordsList = new ArrayList<>();
+//        List <String> wordsList = new ArrayList<>();
+//
+//        int k = 0;
+//
+//        for (int j = 0; j < checkedString.length(); j++) {
+//            if (checkedString.charAt(j) == ' ' | checkedString.charAt(j) == '.' | checkedString.charAt(j) == ',' |
+//                    checkedString.charAt(j) == '!' | checkedString.charAt(j) == '?' | checkedString.charAt(j) == ':' |
+//                    checkedString.charAt(j) == ';') {
+//                if (j > k) {
+//                    wordsList.add(checkedString.substring(k, j));
+//                }
+//                k = j + 1;
+//            }
+//        }
+//
+//        Set wordsSet = new HashSet();
+//        Map <String, Integer> wordsFrequencyMap = new TreeMap();
+//
+//        try {
+//            for (int i = 0; i < wordsList.size(); i++){
+//                if (wordsSet.add(wordsList.get(i))){
+//                    wordsFrequencyMap.put(wordsList.get(i), 1);
+//                } else {
+//                    if (wordsFrequencyMap.containsKey(wordsList.get(i))){
+//                        int counter = wordsFrequencyMap.get(wordsList.get(i));
+//                        wordsFrequencyMap.put(wordsList.get(i), counter + 1);
+//                    }
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-        int k = 0;
-
-        for (int j = 0; j < checkedString.length(); j++) {
-            if (checkedString.charAt(j) == ' ' | checkedString.charAt(j) == '.' | checkedString.charAt(j) == ',' |
-                    checkedString.charAt(j) == '!' | checkedString.charAt(j) == '?' | checkedString.charAt(j) == ':' |
-                    checkedString.charAt(j) == ';') {
-                if (j > k) {
-                    wordsList.add(checkedString.substring(k, j));
-                }
-                k = j + 1;
-            }
-        }
+        String[] wordsArray = checkedString.split("[.,;:!?\\u0020]+");
 
         Set wordsSet = new HashSet();
         Map <String, Integer> wordsFrequencyMap = new TreeMap();
 
         try {
-            for (int i = 0; i < wordsList.size(); i++){
-                if (wordsSet.add(wordsList.get(i))){
-                    wordsFrequencyMap.put(wordsList.get(i), 1);
+            for (int i = 0; i < wordsArray.length; i++){
+                if (wordsSet.add(wordsArray[i])){
+                    wordsFrequencyMap.put(wordsArray[i], 1);
                 } else {
-                    if (wordsFrequencyMap.containsKey(wordsList.get(i))){
-                        int counter = wordsFrequencyMap.get(wordsList.get(i));
-                        wordsFrequencyMap.put(wordsList.get(i), counter + 1);
+                    if (wordsFrequencyMap.containsKey(wordsArray[i])){
+                        int counter = wordsFrequencyMap.get(wordsArray[i]);
+                        wordsFrequencyMap.put(wordsArray[i], counter + 1);
                     }
                 }
             }
@@ -167,26 +187,6 @@ public class Lesson9Test {
             e.printStackTrace();
         }
 
-//        String[] wordsArray = checkedString.split("[ .,;:!?]");
-//
-//        Set wordsSet = new HashSet();
-//        Map <String, Integer> wordsFrequencyMap = new TreeMap();
-//
-//        try {
-//            for (int i = 0; i < wordsArray.length; i++){
-//                if (wordsSet.add(wordsArray[i])){
-//                    wordsFrequencyMap.put(wordsArray[i], 1);
-//                } else {
-//                    if (wordsFrequencyMap.containsKey(wordsArray[i])){
-//                        int counter = wordsFrequencyMap.get(wordsArray[i]);
-//                        wordsFrequencyMap.put(wordsArray[i], counter + 1);
-//                    }
-//                }
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
         for (Map.Entry en : wordsFrequencyMap.entrySet()){
             System.out.println(en.getKey() + " : " + en.getValue());
         }
@@ -208,5 +208,25 @@ public class Lesson9Test {
             System.out.print(numberDeque.pollLast());
         }
         System.out.println("");
+
+        //Task 6
+        System.out.printf("\n~~~Task 6. List concatenations~~~\n\n");
+
+        List <Integer> randomList1 = new ArrayList<>(ELEMENT_SIZE);
+        for (int i = 0; i < ELEMENT_SIZE; i++){
+            randomList1.add(new Random().nextInt(30));
+        }
+
+        List <Integer> randomList2 = new ArrayList<>(ELEMENT_SIZE);
+        for (int i = 0; i < ELEMENT_SIZE; i++){
+            randomList2.add(new Random().nextInt(30));
+        }
+
+        List <Integer> basedList = new ArrayList<>(randomList1);
+
+
+
+
     }
+
 }
