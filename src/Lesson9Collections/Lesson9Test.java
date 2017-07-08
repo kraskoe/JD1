@@ -212,21 +212,71 @@ public class Lesson9Test {
         //Task 6
         System.out.printf("\n~~~Task 6. List concatenations~~~\n\n");
 
-        List <Integer> randomList1 = new ArrayList<>(ELEMENT_SIZE);
+        Set <Integer> randomSet1 = new TreeSet<>();
         for (int i = 0; i < ELEMENT_SIZE; i++){
-            randomList1.add(new Random().nextInt(30));
+            randomSet1.add(new Random().nextInt(30));
         }
 
-        List <Integer> randomList2 = new ArrayList<>(ELEMENT_SIZE);
+        Set <Integer> randomSet2 = new TreeSet<>();
         for (int i = 0; i < ELEMENT_SIZE; i++){
-            randomList2.add(new Random().nextInt(30));
+            randomSet2.add(new Random().nextInt(30));
         }
 
-        List <Integer> basedList = new ArrayList<>(randomList1);
+        randomSet1.addAll(randomSet2);
 
+        for (Integer i : randomSet1) {
+            System.out.println(i);
+        }
 
+        //Task 7
+        System.out.printf("\n~~~Task 7. Sort list~~~\n\n");
 
+        List <Integer> randomList = new ArrayList<>();
+        for (int i = 0; i < ELEMENT_SIZE; i++){
+            randomList.add(new Random().nextInt(21)-10);
+        }
 
+        Collections.sort(randomList, Collections.reverseOrder());
+
+        for (Integer i : randomList){
+            System.out.println(i);
+        }
+
+        //Task 8
+        System.out.printf("\n~~~Task 8. Black box~~~\n\n");
+
+        Set <Integer> blackBox = new TreeSet<>();
+        for (int i = 0; i < ELEMENT_SIZE; i++){
+            blackBox.add(new Random().nextInt(21)-10);
+        }
+
+        for (Integer i : blackBox){
+            System.out.println(i);
+        }
+
+        System.out.printf("%d's minimal value: %d%n", 5, findMin(blackBox, 5));
+        System.out.printf("%d's maximal value: %d%n", 3, findMax(blackBox, 3));
     }
 
+    public static Integer findMin(Set ts, int positionFromMinimal){
+        Iterator <Integer> tsIter = ts.iterator();
+        Integer temp = 0;
+        for (int i = 0; i < positionFromMinimal; i++){
+            if (tsIter.hasNext()){
+                 temp = tsIter.next();
+            } else break;
+        }
+        return temp;
+    }
+
+    public static Integer findMax(Set ts, int positionFromMaximal){
+        Iterator <Integer> tsIter = ts.iterator();
+        Integer temp = 0;
+        for (int i = 0; i <= ts.size() - positionFromMaximal; i++){
+            if (tsIter.hasNext()){
+                temp = tsIter.next();
+            } else break;
+        }
+        return temp;
+    }
 }
