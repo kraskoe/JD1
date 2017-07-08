@@ -7,22 +7,22 @@ import java.lang.reflect.*;
  */
 public class TestTransaction {
     public static void main(String[] args) {
-        try {
-            Bank bank = new Bank();
-            Class bankClass = bank.getClass();
-            Method[] bankMethods = bankClass.getDeclaredMethods();
-            for (Method m : bankMethods){
-                if(m.isAnnotationPresent(Transaction.class)){
-                    Transaction trans = m.getAnnotation(Transaction.class);
-                    System.out.println(trans.start);
-                    bank.fulfilTransaction();
-                    m.invoke(bank);
-                    System.out.println(trans.end);
-                }
-            }
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Bank bank = new Bank();
+//            Class bankClass = bank.getClass();
+//            Method[] bankMethods = bankClass.getDeclaredMethods();
+//            for (Method m : bankMethods){
+//                if(m.isAnnotationPresent(Transaction.class)){
+//                    Transaction trans = m.getAnnotation(Transaction.class);
+//                    System.out.println(trans.start);
+//                    bank.fulfilTransaction();
+//                    m.invoke(bank);
+//                    System.out.println(trans.end);
+//                }
+//            }
+//        } catch (IllegalAccessException | InvocationTargetException e) {
+//            e.printStackTrace();
+//        }
 
 
     }

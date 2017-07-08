@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 public class TestLesson7 {
     public static void main(String[] args) {
         //Task 1,2 Pair - swap pair
-        System.out.println("Task 1, 2 Pair object");
+        System.out.printf("Task 1, 2 Pair object\n\n");
         Pair <Double, Integer> pairA = new Pair <>(new Double("2.1"), new Integer(5));
         System.out.println(pairA.toString());
         Pair <Integer, Double> pairB = PairUtil.swap(pairA);
@@ -21,8 +21,7 @@ public class TestLesson7 {
         double c = 3.4;
         int d = 9;
 
-        System.out.println("");
-        System.out.println("Task 4 Calculator");
+        System.out.printf("%nTask 4 Calculator%n%n");
         Calculator <Number> newWrapper1 = new Calculator <>(3.9, 3.2);
         System.out.println(newWrapper1.addUnified());
         System.out.println(newWrapper1.divideUnified());
@@ -40,8 +39,7 @@ public class TestLesson7 {
         System.out.println(newWrapper4.multiplyUnified());
 
         //Task 5 Transaction annotation
-        System.out.println("");
-        System.out.println("Task 5 Transaction");
+        System.out.printf("%nTask 5 Transaction%n%n");
         try {
             Bank bank = new Bank();
             Class bankClass = bank.getClass();
@@ -58,5 +56,19 @@ public class TestLesson7 {
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
+
+        //Task 6 ClassAnalyzer
+        System.out.printf("%nTask 6 Class analyzer%n%n");
+
+        try {
+            Bank bank = new Bank();
+            Class bankClass = bank.getClass();
+
+            ClassAnalizer.analyze(bankClass);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+
     }
 }
