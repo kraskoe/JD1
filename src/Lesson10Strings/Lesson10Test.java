@@ -108,30 +108,52 @@ public class Lesson10Test {
 
         System.out.println(addZeroesString1(123));
         System.out.println(addZeroesString2(123));
+        System.out.println(addZeroesString3(123));
+        System.out.println(addZeroesString4(123));
         System.out.println(addZeroesStringBuilder(123));
+        System.out.println(addZeroesStringBuilder2(123));
 
         long start1 = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++){
+        for (int i = 0; i < 100000; i++){
             addZeroesString1(123);
         }
         long finish1 = System.currentTimeMillis();
         System.out.printf("Time of running program: %d milliseconds%n", finish1 - start1);
 
         long start2 = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++){
+        for (int i = 0; i < 100000; i++){
             addZeroesString2(123);
         }
         long finish2 = System.currentTimeMillis();
         System.out.printf("Time of running program: %d milliseconds%n", finish2 - start2);
 
         long start3 = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++){
-            addZeroesStringBuilder(123);
+        for (int i = 0; i < 100000; i++){
+            addZeroesString3(123);
         }
         long finish3 = System.currentTimeMillis();
         System.out.printf("Time of running program: %d milliseconds%n", finish3 - start3);
 
+        long start4 = System.currentTimeMillis();
+        for (int i = 0; i < 100000; i++){
+            addZeroesStringBuilder(123);
+        }
+        long finish4 = System.currentTimeMillis();
+        System.out.printf("Time of running program: %d milliseconds%n", finish4 - start4);
 
+        long start5 = System.currentTimeMillis();
+        for (int i = 0; i < 100000; i++){
+            addZeroesStringBuilder2(123);
+        }
+        long finish5 = System.currentTimeMillis();
+        System.out.printf("Time of running program: %d milliseconds%n", finish5 - start5);
+
+        long start6 = System.currentTimeMillis();
+        for (int i = 0; i < 100000; i++){
+            addZeroesString4(123);
+        }
+        long finish6 = System.currentTimeMillis();
+        System.out.printf("Time of running program: %d milliseconds%n", finish6 - start6);
     }
 
     public static boolean checkString(String testString, String word){
@@ -174,7 +196,18 @@ public class Lesson10Test {
     }
 
     public static String addZeroesString2(Object n){
+        Formatter fmt = new Formatter();
+        return fmt.format("%08d", n).toString();
+    }
+
+    public static String addZeroesString3(Object n){
         return n.toString().format("%08d", n);
+    }
+
+    public static String addZeroesString4(Object n){
+        String tempS = new String("00000000");
+        tempS = tempS.concat(n.toString());
+        return tempS.substring(tempS.length() - 8);
     }
 
     public static StringBuilder addZeroesStringBuilder(Object n){
@@ -186,5 +219,11 @@ public class Lesson10Test {
             }
             return nWZB;
         } else return nWZB;
+    }
+
+    public static String addZeroesStringBuilder2(Object n){
+        StringBuilder nWZB2 = new StringBuilder("00000000");
+        nWZB2.append(n);
+        return nWZB2.substring(nWZB2.length() - 8);
     }
 }
