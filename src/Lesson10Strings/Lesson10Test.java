@@ -118,42 +118,42 @@ public class Lesson10Test {
             addZeroesString1(123);
         }
         long finish1 = System.currentTimeMillis();
-        System.out.printf("Time of running program: %d milliseconds%n", finish1 - start1);
+        System.out.printf("Time of running program (cycle string +=): %d milliseconds%n", finish1 - start1);
 
         long start2 = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++){
             addZeroesString2(123);
         }
         long finish2 = System.currentTimeMillis();
-        System.out.printf("Time of running program: %d milliseconds%n", finish2 - start2);
+        System.out.printf("Time of running program (format string): %d milliseconds%n", finish2 - start2);
 
         long start3 = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++){
             addZeroesString3(123);
         }
         long finish3 = System.currentTimeMillis();
-        System.out.printf("Time of running program: %d milliseconds%n", finish3 - start3);
+        System.out.printf("Time of running program (create new formatter): %d milliseconds%n", finish3 - start3);
 
         long start4 = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++){
             addZeroesStringBuilder(123);
         }
         long finish4 = System.currentTimeMillis();
-        System.out.printf("Time of running program: %d milliseconds%n", finish4 - start4);
+        System.out.printf("Time of running program (cycle stringbuilder insert): %d milliseconds%n", finish4 - start4);
 
         long start5 = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++){
             addZeroesStringBuilder2(123);
         }
         long finish5 = System.currentTimeMillis();
-        System.out.printf("Time of running program: %d milliseconds%n", finish5 - start5);
+        System.out.printf("Time of running program (stringbuilder substring): %d milliseconds%n", finish5 - start5);
 
         long start6 = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++){
             addZeroesString4(123);
         }
         long finish6 = System.currentTimeMillis();
-        System.out.printf("Time of running program: %d milliseconds%n", finish6 - start6);
+        System.out.printf("Time of running program (string substring): %d milliseconds%n", finish6 - start6);
     }
 
     public static boolean checkString(String testString, String word){
