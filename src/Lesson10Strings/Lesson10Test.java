@@ -1,5 +1,7 @@
 package Lesson10Strings;
 
+import java.util.Formatter;
+
 /**
  * Created by ADMIN on 10.07.2017.
  */
@@ -15,21 +17,21 @@ public class Lesson10Test {
         String addString = "ThisIsTestString";
 
         long startString1 = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++){
+        for (int i = 0; i < 10000; i++){
             testString1 = testString1.concat(addString);
         }
         long finishString1 = System.currentTimeMillis();
         System.out.printf("Time of running program String.concat(): %d milliseconds%n", finishString1 - startString1);
 
         long startString2 = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++){
+        for (int i = 0; i < 10000; i++){
             testString2 = testString2 + addString;
         }
         long finishString2 = System.currentTimeMillis();
         System.out.printf("Time of running program String + String: %d milliseconds%n", finishString2 - startString2);
 
         long startString3 = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++){
+        for (int i = 0; i < 10000; i++){
             testString3 += addString;
         }
         long finishString3 = System.currentTimeMillis();
@@ -37,7 +39,7 @@ public class Lesson10Test {
 
         long startStringBuilder = System.currentTimeMillis();
         long startNanoSB = System.nanoTime();
-        for (int i = 0; i < 1000; i++){
+        for (int i = 0; i < 10000; i++){
             testStringBuilder = testStringBuilder.append(addString);
         }
         long finishStringBuilder = System.currentTimeMillis();
@@ -97,7 +99,39 @@ public class Lesson10Test {
 
         String startingString = new String("     Thiiiis isssss tesssst striiiiiiiinnnnnnggggg     ");
 
+        System.out.println(startingString);
+
         System.out.println(deleteDuplicates(startingString));
+
+        //Task 7.
+        System.out.printf("%nTask 7. Test formatters%n%n");
+
+        System.out.println(addZeroesString1(123));
+        System.out.println(addZeroesString2(123));
+        System.out.println(addZeroesStringBuilder(123));
+
+        long start1 = System.currentTimeMillis();
+        for (int i = 0; i < 10000; i++){
+            addZeroesString1(123);
+        }
+        long finish1 = System.currentTimeMillis();
+        System.out.printf("Time of running program: %d milliseconds%n", finish1 - start1);
+
+        long start2 = System.currentTimeMillis();
+        for (int i = 0; i < 10000; i++){
+            addZeroesString2(123);
+        }
+        long finish2 = System.currentTimeMillis();
+        System.out.printf("Time of running program: %d milliseconds%n", finish2 - start2);
+
+        long start3 = System.currentTimeMillis();
+        for (int i = 0; i < 10000; i++){
+            addZeroesStringBuilder(123);
+        }
+        long finish3 = System.currentTimeMillis();
+        System.out.printf("Time of running program: %d milliseconds%n", finish3 - start3);
+
+
     }
 
     public static boolean checkString(String testString, String word){
@@ -118,16 +152,39 @@ public class Lesson10Test {
 
     public static String deleteDuplicates(String stStringRough){
         StringBuilder stString = new StringBuilder(stStringRough.trim());
-        int counter = stString.length();
-        System.out.println(stString);
-        for (int i =0; i < counter; i++) {
+        for (int i = 0; i < stString.length() - 1; i++) {
             if (stString.charAt(i) == stString.charAt(i + 1)) {
                 stString.deleteCharAt(i + 1);
                 i--;
-                stString.setLength(counter);
             }
         }
-        System.out.println(stString);
         return new String(stString).trim();
+    }
+
+    public static String addZeroesString1(Object n){
+        String nWZ = n.toString();
+        if (nWZ.length() < 8){
+            String formString = new String();
+            for (int i = 0; i < 8 - nWZ.length(); i++){
+                formString += "0";
+            }
+            formString += nWZ;
+            return formString;
+        } else return nWZ;
+    }
+
+    public static String addZeroesString2(Object n){
+        return n.toString().format("%08d", n);
+    }
+
+    public static StringBuilder addZeroesStringBuilder(Object n){
+        StringBuilder nWZB = new StringBuilder(n.toString());
+        if (nWZB.length() < 8){
+            int tempLength = 8 - nWZB.length();
+            for (int i = 0; i < tempLength; i++){
+                nWZB.insert(0, "0");
+            }
+            return nWZB;
+        } else return nWZB;
     }
 }
