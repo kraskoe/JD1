@@ -159,7 +159,7 @@ public class Lesson10Test {
     public static boolean checkString(String testString, String word){
         if (testString != null && word != null){
             String wordToLC = word.toLowerCase();
-            if (testString.toLowerCase().startsWith(wordToLC) & testString.toLowerCase().endsWith(wordToLC)){
+            if (testString.toLowerCase().startsWith(wordToLC) && testString.toLowerCase().endsWith(wordToLC)){
                 return true;
             } else return false;
         } else {

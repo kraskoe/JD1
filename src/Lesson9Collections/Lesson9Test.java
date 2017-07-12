@@ -1,9 +1,5 @@
 package Lesson9Collections;
 
-import javafx.collections.transformation.SortedList;
-
-import javax.swing.text.html.parser.Entity;
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.util.*;
 
