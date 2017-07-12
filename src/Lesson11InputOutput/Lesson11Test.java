@@ -13,10 +13,11 @@ public class Lesson11Test {
         //Task 1
         System.out.printf("Task 1. Read lines from file%n%n");
 
-        File textFile = new File("E://Java//Git//practice//src//TXTfiles//task1text.txt");
+        File textFile = new File("tmp", "task1text.txt");
+//        File textFile = new File("E://Java//Git//practice//src//TXTfiles//task1text.txt");
+//        File textFile = new File("..//TXTfiles//task1text.txt");
+//        File textFile = new File(".." + File.separator + "TXTfiles" + File.separator + "task1text.txt");
         try (BufferedReader bfr = new BufferedReader(new FileReader(textFile))) {
-//        File textFile = new File(".." + File.separator, "TXTfiles" + File.separator + "task1text.txt");
-//        try (BufferedReader bfr = new BufferedReader(new FileReader(textFile))) {
 //        try (BufferedReader bfr = new BufferedReader(new FileReader("E://Java//Git//practice//src//TXTfiles//task1text.txt"))) {
             String temp;
             while ((temp = bfr.readLine()) != null){
