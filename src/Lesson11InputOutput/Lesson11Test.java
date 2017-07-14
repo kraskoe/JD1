@@ -1,9 +1,7 @@
 package Lesson11InputOutput;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by ADMIN on 12.07.2017.
@@ -14,11 +12,7 @@ public class Lesson11Test {
         System.out.printf("Task 1. Read lines from file%n%n");
 
         File textFile = new File("tmp", "task1text.txt");
-//        File textFile = new File("E://Java//Git//practice//src//TXTfiles//task1text.txt");
-//        File textFile = new File("..//TXTfiles//task1text.txt");
-//        File textFile = new File(".." + File.separator + "TXTfiles" + File.separator + "task1text.txt");
         try (BufferedReader bfr = new BufferedReader(new FileReader(textFile))) {
-//        try (BufferedReader bfr = new BufferedReader(new FileReader("E://Java//Git//practice//src//TXTfiles//task1text.txt"))) {
             String temp;
             while ((temp = bfr.readLine()) != null){
                 System.out.println(temp);
@@ -42,7 +36,7 @@ public class Lesson11Test {
         } catch (IOException ie) {
             ie.getMessage();
         }
-        char[] vocals = {'а', 'е', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'};
+//        char[] vocals = {'а', 'е', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'};
         String[] wordsArray = tempString.toString().toLowerCase().split("[.,;:!?\\u0020]+");
         for (String s : wordsArray){
 //            if (Arrays.asList(vocals).contains(s.charAt(0))) {
@@ -64,6 +58,108 @@ public class Lesson11Test {
                 System.out.println("");
             }
             tempWord = s;
+        }
+
+        //Task 4
+        System.out.printf("%nTask 4. Numbers follow numbers%n%n");
+
+        StringBuilder tmpstr = new StringBuilder();
+        try (BufferedReader fr = new BufferedReader(new FileReader(textFile))) {
+            String temp;
+            while ((temp = fr.readLine()) != null){
+                int maxCounter = 0;
+                tmpstr.append(temp);
+                String tmp = tmpstr.toString();
+                int counter = 0;
+                for (int i = 0; i < tmp.length(); i++){
+                    if (tmp.charAt(i) == '0' || tmp.charAt(i) == '1' || tmp.charAt(i) == '2' || tmp.charAt(i) == '3' ||
+                            tmp.charAt(i) == '4' || tmp.charAt(i) == '5' || tmp.charAt(i) == '6' || tmp.charAt(i) == '7' ||
+                            tmp.charAt(i) == '8' || tmp.charAt(i) == '9'){
+                        counter++;
+                        if (maxCounter < counter) {
+                            maxCounter = counter;
+                        }
+                    } else counter = 0;
+                }
+                System.out.println("Максимальное число цифр, идущих подряд: " + maxCounter);
+                tmpstr = new StringBuilder();
+            }
+        } catch (IOException ie) {
+            ie.getMessage();
+        }
+
+        //Task 5
+        System.out.printf("%nTask 5. Working with binary file%n%n");
+
+        int[] intArray = new int[20];
+        for (int i= 0; i < intArray.length; i++){
+            intArray[i] = new Random().nextInt(100);
+            System.out.print(intArray[i] + " ");
+        }
+
+        System.out.println("");
+        List<Byte> byteList = new ArrayList<>();
+        for (int i : intArray){
+            byteList.add((byte)i);
+        }
+
+        List<Integer> intList = new ArrayList<>();
+
+        byte[] buffer = new byte[byteList.size()];
+        int counter = 0;
+        for (byte b : byteList){
+            buffer[counter++] = b;
+        }
+
+        File binaryFile = new File("tmp", "binaryfile");
+        try (FileInputStream fin = new FileInputStream(binaryFile);
+             FileOutputStream fos = new FileOutputStream(binaryFile)){
+            fos.write(buffer);
+
+            byte[] readBuffer = new byte[fin.available()];
+            fin.read(readBuffer);
+            for (byte b : readBuffer){
+                intList.add((int) b);
+            }
+
+            int sum = 0;
+            for (int i : intList){
+                System.out.print(i + " ");
+                sum += i;
+            }
+
+            System.out.println("");
+            double average = sum / intList.size();
+            System.out.println(average);
+
+
+        } catch (IOException ie) {
+            ie.getMessage();
+        }
+
+        //Task 6
+        System.out.printf("%nTask 6. Directory tree%n%n");
+
+        String dirname = "e:" + File.separator + "Java";
+        File dir = new File(dirname);
+        if (dir.isDirectory()){
+            System.out.println("Directory: " + dir.getName());
+            String[] dirList = dir.list();
+            for (String innerDir : dirList) {
+                File innerFile = new File(dirname + File.separator + innerDir);
+                if (innerFile.isDirectory()){
+                    System.out.println("    " + "Directory: " + innerFile.getName());
+                } else if (innerFile.isFile()){
+                    System.out.println("    " + "File: " + innerFile.getName());
+                }
+            }
+
+//Listfiles used
+//            System.out.println("");
+//            File[] filesList = dir.listFiles();
+//            for (File f : filesList){
+//                System.out.println(f.getName());
+//            }
         }
 
     }
