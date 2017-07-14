@@ -154,13 +154,28 @@ public class Lesson11Test {
                 }
             }
 
-//Listfiles used
-//            System.out.println("");
-//            File[] filesList = dir.listFiles();
-//            for (File f : filesList){
-//                System.out.println(f.getName());
-//            }
-        }
+            //Task 7
+            System.out.printf("%nTask 7. File reverse%n%n");
 
+            File program = new File("src/Lesson2/Task1CompareWords.java");
+            File reverseProgram = new File("tmp/reverseprogram.java");
+
+            try (BufferedReader pread = new BufferedReader(new FileReader(program));
+            BufferedWriter pwrite = new BufferedWriter(new FileWriter(reverseProgram))){
+                String temp;
+                while ((temp = pread.readLine()) != null){
+                    for (int i = temp.length()-1; i >=0; i--){
+                        pwrite.write(temp.charAt(i));
+                    }
+                    pwrite.write("\n");
+                }
+            } catch (IOException ie) {
+                ie.getMessage();
+            } finally {
+                if (reverseProgram.exists()){
+                    System.out.println("Программа выполнена успешно!");
+                }
+            }
+        }
     }
 }
