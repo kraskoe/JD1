@@ -88,7 +88,7 @@ public class Lesson11Test {
             ie.getMessage();
         }
 
-        //Task 5
+//        Task 5
         System.out.printf("%nTask 5. Working with binary file%n%n");
 
         int[] intArray = new int[20];
@@ -97,44 +97,28 @@ public class Lesson11Test {
             System.out.print(intArray[i] + " ");
         }
 
-        System.out.println("");
-        List<Byte> byteList = new ArrayList<>();
-        for (int i : intArray){
-            byteList.add((byte)i);
-        }
-
-        List<Integer> intList = new ArrayList<>();
-
-        byte[] buffer = new byte[byteList.size()];
-        int counter = 0;
-        for (byte b : byteList){
-            buffer[counter++] = b;
-        }
-
         File binaryFile = new File("tmp", "binaryfile");
-        try (FileInputStream fin = new FileInputStream(binaryFile);
-             FileOutputStream fos = new FileOutputStream(binaryFile)){
-            fos.write(buffer);
-
-            byte[] readBuffer = new byte[fin.available()];
-            fin.read(readBuffer);
-            for (byte b : readBuffer){
-                intList.add((int) b);
-            }
-
-            int sum = 0;
-            for (int i : intList){
-                System.out.print(i + " ");
-                sum += i;
+        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(binaryFile));
+             DataInputStream din = new DataInputStream(new FileInputStream(binaryFile))){
+            for (int i= 0; i < intArray.length; i++){
+                dos.writeInt(intArray[i]);
             }
 
             System.out.println("");
-            double average = sum / intList.size();
+            int integer, sum =0;
+            for (int i= 0; i < intArray.length; i++){
+                integer = din.readInt();
+                System.out.print(integer + " ");
+                sum += integer;
+            }
+
+            System.out.println("");
+            double average = sum / intArray.length;
             System.out.println(average);
 
 
         } catch (IOException ie) {
-            ie.getMessage();
+            ie.printStackTrace();
         }
 
         //Task 6
@@ -153,28 +137,28 @@ public class Lesson11Test {
                     System.out.println("    " + "File: " + innerFile.getName());
                 }
             }
+        }
 
-            //Task 7
-            System.out.printf("%nTask 7. File reverse%n%n");
+        //Task 7
+        System.out.printf("%nTask 7. File reverse%n%n");
 
-            File program = new File("src/Lesson2/Task1CompareWords.java");
-            File reverseProgram = new File("tmp/reverseprogram.java");
+        File program = new File("src/Lesson2/Task1CompareWords.java");
+        File reverseProgram = new File("tmp/reverseprogram.java");
 
-            try (BufferedReader pread = new BufferedReader(new FileReader(program));
-            BufferedWriter pwrite = new BufferedWriter(new FileWriter(reverseProgram))){
-                String temp;
-                while ((temp = pread.readLine()) != null){
-                    for (int i = temp.length()-1; i >=0; i--){
-                        pwrite.write(temp.charAt(i));
-                    }
-                    pwrite.write("\n");
+        try (BufferedReader pread = new BufferedReader(new FileReader(program));
+             BufferedWriter pwrite = new BufferedWriter(new FileWriter(reverseProgram))){
+            String temp;
+            while ((temp = pread.readLine()) != null){
+                for (int i = temp.length()-1; i >=0; i--){
+                    pwrite.write(temp.charAt(i));
                 }
-            } catch (IOException ie) {
-                ie.getMessage();
-            } finally {
-                if (reverseProgram.exists()){
-                    System.out.println("Программа выполнена успешно!");
-                }
+                pwrite.write("\n");
+            }
+        } catch (IOException ie) {
+            ie.getMessage();
+        } finally {
+            if (reverseProgram.exists()){
+                System.out.println("Программа выполнена успешно!");
             }
         }
     }

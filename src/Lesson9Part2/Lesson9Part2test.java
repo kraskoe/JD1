@@ -1,11 +1,17 @@
 package Lesson9Part2;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.*;
 
 /**
  * Created by User on 08.07.2017.
  */
 public class Lesson9Part2test {
+    public Lesson9Part2test() {
+    }
+
     public static void main(String[] args) {
         final int ELEMENT_SIZE = 10;
 
@@ -83,37 +89,20 @@ public class Lesson9Part2test {
             tempKey = (int) obj;
             tempValue = (int) resultMap.get(obj);
 
-            if (tempKey == 1 || tempKey == 0){
-                if (tempKey == 1){
+            if (tempKey == 1 || tempKey == 0) {
+                if (tempKey == 1) {
                     System.out.printf("%dx", resultMap.get(obj));
                 }
-                if (tempKey == 0){
+                if (tempKey == 0) {
                     System.out.printf("%d", resultMap.get(obj));
                 }
             } else {
                 System.out.printf("%dx^%d", resultMap.get(obj), obj);
             }
-            if (++counter == resultMap.size() + 1){
+            if (++counter == resultMap.size() + 1) {
                 System.out.printf("%n");
             } else System.out.print(" + ");
         }
-
-//        int counter = 0;
-//        for (Object obj : resultMap.keySet()){
-//            if (counter++ == resultMap.size() - 2){
-//                if ((int) obj == 0){
-//                    System.out.printf("%d", obj);
-//                } else {
-//                    System.out.printf("%dx^%d", resultMap.get(obj), obj);
-//                }
-//            }
-//            System.out.printf("%dx^%d", resultMap.get(obj), obj);
-//
-//            System.out.print(" + ");
-//        }
-//        System.out.println("");
-
-
     }
 
     public static int countUnique(List l){
