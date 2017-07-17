@@ -38,7 +38,7 @@ public class Lesson12Test {
             ie.printStackTrace();
         }
         long finish2 = System.currentTimeMillis();
-        System.out.println("Time of writing/reading without buffer is: " + (finish2 - start2));
+        System.out.println("Time of writing/reading with buffer is: " + (finish2 - start2));
 
         //Task 2
         System.out.printf("%nTask 2. Serialize computer%n%n");

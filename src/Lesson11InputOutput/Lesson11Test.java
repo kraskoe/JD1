@@ -106,7 +106,8 @@ public class Lesson11Test {
 
             System.out.println("");
             int integer, sum =0;
-            for (int i= 0; i < intArray.length; i++){
+            int length = din.available()/4;
+            for (int i= 0; i < length; i++){
                 integer = din.readInt();
                 System.out.print(integer + " ");
                 sum += integer;

@@ -32,7 +32,7 @@ public class Lesson13Test {
                 "используя шестнадцатеричный код, можно x25fa записать любое состояние байта, при этом не остаётся «лишних» " +
                 "не используемых в записи цифр.";
         String test = "dsgsg";
-        Pattern pat = Pattern.compile("0[xX][0-9a-fA-f]+\\.?[0-9a-fA-f]*p?-?[0-9]*");
+        Pattern pat = Pattern.compile("0[xX][0-9a-fA-F]+\\.?[0-9a-fA-f]*p?-?[0-9]*");
         Matcher mat = pat.matcher(testText);
         while (mat.find()){
             System.out.printf("Match found: %s%n", mat.group());
@@ -65,18 +65,18 @@ public class Lesson13Test {
         System.out.printf("%nTask 4. Format telephone numbers%n%n");
 
         String telStr = "These are correct telephone numbers: +375445776198, +375298741265 and these are incorrect:" +
-                "+324449548736, +3752914563214, 674+375296548798";
+                "+324449548736, +3752914563214";
         String formattedStr = telStr.replaceAll("(\\+375)(\\d{2})(\\d{3})(\\d{2})(\\d{2})\\b", "$1 ($2) $3-$4-$5");
         System.out.println(formattedStr);
 
         //Task 5
         System.out.printf("%nTask 5. Check IPv4%n%n");
 
-        String address1 = "255.1.15.190";
+        String address1 = "255.001.15.190";
         String address2 = "259.1.15.190";
         String address3 = "255.1024.15.190";
         String address4 = "255.1.515.190";
-        String address5 = "0.1.15.190";
+        String address5 = "0.01.15.190";
 
         isIPv4(address1);
         isIPv4(address2);
@@ -95,20 +95,31 @@ public class Lesson13Test {
     }
 
     public static boolean isIPv4 (String s){
-        Pattern addpat = Pattern.compile("(\\d{0,3})\\.(\\d{0,3})\\.(\\d{0,3})\\.(\\d{0,3})");
+        Pattern addpat = Pattern.compile("(25[0-5]|2[0-5]\\d|1\\d{2}|[1-9]\\d|\\d)\\.\1\\.\1\\.\1");
         Matcher addmat = addpat.matcher(s);
         if (addmat.matches()){
-            if ((Integer.parseInt(addmat.group(1)) < 256) && (Integer.parseInt(addmat.group(2)) < 256) &&
-                    (Integer.parseInt(addmat.group(3)) < 256) && (Integer.parseInt(addmat.group(4)) < 256)){
-                System.out.printf("This is a valid IPv4 address: %s%n", s);
-                return true;
-            } else {
-                System.out.printf("This is not a valid IPv4 address: %s%n", s);
-                return false;
-            }
+            System.out.printf("This is a valid IPv4 address: %s%n", s);
+            return true;
         } else {
             System.out.printf("This is not a valid IPv4 address: %s%n", s);
             return false;
         }
     }
+//    public static boolean isIPv4 (String s){
+//        Pattern addpat = Pattern.compile("(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})");
+//        Matcher addmat = addpat.matcher(s);
+//        if (addmat.matches()){
+//            if ((Integer.parseInt(addmat.group(1)) < 256) && (Integer.parseInt(addmat.group(2)) < 256) &&
+//                    (Integer.parseInt(addmat.group(3)) < 256) && (Integer.parseInt(addmat.group(4)) < 256)){
+//                System.out.printf("This is a valid IPv4 address: %s%n", s);
+//                return true;
+//            } else {
+//                System.out.printf("This is not a valid IPv4 address: %s%n", s);
+//                return false;
+//            }
+//        } else {
+//            System.out.printf("This is not a valid IPv4 address: %s%n", s);
+//            return false;
+//        }
+//    }
 }
