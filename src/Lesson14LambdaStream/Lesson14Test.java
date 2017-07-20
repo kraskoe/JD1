@@ -1,6 +1,7 @@
 package Lesson14LambdaStream;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by ADMIN on 19.07.2017.
@@ -11,7 +12,11 @@ public class Lesson14Test {
         System.out.printf("Task 1. Average of numbers in list%n%n");
 
         Collection<Integer> intList = Arrays.asList(5, 15, 23, 13, 4, 3, 10, 25, 25);
-        double av5 = intList.stream().filter((i) -> i % 2 != 0 && i % 5 == 0).mapToInt(Integer::intValue).average().getAsDouble();
+//        double av5 = intList.stream().filter((i) -> i % 2 != 0 && i % 5 == 0).mapToInt(Integer::intValue).average().getAsDouble();
+        double av5 = intList
+                .stream()
+                .filter((i) -> i % 2 != 0 && i % 5 == 0)
+                .collect(Collectors.averagingInt(p -> p));
         System.out.println(av5);
 
         //Task 2
@@ -19,7 +24,11 @@ public class Lesson14Test {
 
         Collection<String> stringList = Arrays.asList("String1", "String123", "String465", "String1789", "String17456", "String10124",
                 "String1", "String41", "String7561", "String41", "String145", "String123", "String17", "String145", "String197");
-        long countUniqueWords = stringList.stream().filter((s) -> s.length() > 8).distinct().count();
+        long countUniqueWords = stringList
+                .stream()
+                .filter((s) -> s.length() > 8)
+                .distinct()
+                .count();
         System.out.println(countUniqueWords);
 
         //Task 3
@@ -29,23 +38,32 @@ public class Lesson14Test {
         for (int i = 6; i < 16; i++) {
             myMap.put("KeyMp" + i, i);
         }
-        List<Integer> listSummary = new ArrayList<>();
-        myMap.forEach((id, val) -> {
-            System.out.println(id + " " + val);
-            if (id.length() < 7){
-                listSummary.add(val);
-            }
-        });
-
-        System.out.println("");
-        int sum = listSummary.stream().mapToInt(Integer::intValue).sum();
+//        List<Integer> listSummary = new ArrayList<>();
+//        myMap.forEach((id, val) -> {
+//            System.out.println(id + " " + val);
+//            if (id.length() < 7){
+//                listSummary.add(val);
+//            }
+//        });
+//
+//        System.out.println("");
+//        int sum = listSummary.stream().mapToInt(Integer::intValue).sum();
+        int sum = myMap
+                .entrySet()
+                .stream()
+                .peek(p -> System.out.println(p.getKey() + " " + p.getValue()))
+                .filter(p -> p.getKey().length() < 7)
+                .collect(Collectors.summingInt(p -> p.getValue()));
         System.out.println("Summary of all values with keys length less than 7: " + sum);
 
         //Task 4
         System.out.printf("%nTask 4. Concatenate numbers%n%n");
 
         Collection<Integer> strList = Arrays.asList(5, 2, 4, 2, 1);
-        Optional<String> reducedString = strList.stream().map((val) -> val.toString()) .reduce((s1, s2) -> s1 + s2);
+        Optional<String> reducedString = strList
+                .stream()
+                .map((val) -> val.toString())
+                .reduce((s1, s2) -> s1 + s2);
         reducedString.ifPresent(System.out::println);
 
         //Task 5
@@ -64,7 +82,6 @@ public class Lesson14Test {
                 .filter((el) -> (el.getFirstName() + " " + el.getLastName()).length() <= 15)
                 .max(Comparator.comparing(Person::getAge)).get();
         System.out.println("Person: " + agedPerson.getFirstName() + " " + agedPerson.getLastName() + ". Age: " + agedPerson.getAge());
-
     }
 }
 
