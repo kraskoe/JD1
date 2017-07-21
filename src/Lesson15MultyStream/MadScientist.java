@@ -11,15 +11,15 @@ public class MadScientist {
     Map<Enum,Integer> details;
     public MadScientist(){
         details = new HashMap<>();
-        details.put(Parts.HEAD, 0);
-        details.put(Parts.BODY, 0);
-        details.put(Parts.LARM, 0);
-        details.put(Parts.RARM, 0);
-        details.put(Parts.LLEG, 0);
-        details.put(Parts.RLEG, 0);
-        details.put(Parts.CPU, 0);
-        details.put(Parts.RAM, 0);
-        details.put(Parts.HDD, 0);
+        details.put(Part.HEAD, 0);
+        details.put(Part.BODY, 0);
+        details.put(Part.LARM, 0);
+        details.put(Part.RARM, 0);
+        details.put(Part.LLEG, 0);
+        details.put(Part.RLEG, 0);
+        details.put(Part.CPU, 0);
+        details.put(Part.RAM, 0);
+        details.put(Part.HDD, 0);
     }
 
 //    public void setRobotsReady(int r){
@@ -31,15 +31,15 @@ public class MadScientist {
     }
 
     public void collectRobots(){
-        while (details.get(Parts.HEAD) > 0 &&
-                details.get(Parts.BODY) > 0 &&
-                details.get(Parts.LARM) > 0 &&
-                details.get(Parts.RARM) > 0 &&
-                details.get(Parts.LLEG) > 0 &&
-                details.get(Parts.RLEG) > 0 &&
-                details.get(Parts.CPU) > 0 &&
-                details.get(Parts.RAM) > 0 &&
-                details.get(Parts.HDD) > 0){
+        while (details.get(Part.HEAD) > 0 &&
+                details.get(Part.BODY) > 0 &&
+                details.get(Part.LARM) > 0 &&
+                details.get(Part.RARM) > 0 &&
+                details.get(Part.LLEG) > 0 &&
+                details.get(Part.RLEG) > 0 &&
+                details.get(Part.CPU) > 0 &&
+                details.get(Part.RAM) > 0 &&
+                details.get(Part.HDD) > 0){
             robotsReady += 1;
             details.forEach((key, value) -> value--);
         }

@@ -1,6 +1,5 @@
 package Lesson15MultyStream;
 
-import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -19,9 +18,9 @@ public class Gatherer implements Runnable {
             for(int i =0; i < 99; i++){
                 int countDetails = new Random().nextInt(4);
                 for(int j = 0; j < countDetails; j++){
-                    Part tempPart;
-                    if ((tempPart = jy.gatherPart()) != null){
-                        ms.details.put(tempPart.getPart(), ms.details.get(tempPart.getPart()) + 1);
+                    PartFactory tempPartFactory;
+                    if ((tempPartFactory = jy.gatherPart()) != null){
+                        ms.details.put(tempPartFactory.getPart(), ms.details.get(tempPartFactory.getPart()) + 1);
                     }
                 }
                 ms.collectRobots();
@@ -30,6 +29,5 @@ public class Gatherer implements Runnable {
         } catch (InterruptedException ie){
             ie.printStackTrace();
         }
-
     }
 }

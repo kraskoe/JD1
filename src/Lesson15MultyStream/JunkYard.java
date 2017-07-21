@@ -6,25 +6,23 @@ import java.util.Stack;
  * Created by ADMIN on 21.07.2017.
  */
 public class JunkYard {
-    public Stack<Part> junkParts = new Stack<>();
+    public Stack<PartFactory> junkParts = new Stack<>();
     public JunkYard(int det){
         for (int i = 0; i < det; i++){
-            junkParts.push(new Part());
-            System.out.println(junkParts.peek());
-            System.out.println(junkParts.peek().getPart());
+            junkParts.push(new PartFactory());
         }
     }
     public JunkYard(){
-        new JunkYard(20);
+        this(20);
     }
 
     public void throwDetails(int td){
         for (int i = 0; i < td; i++){
-            junkParts.push(new Part());
+            junkParts.push(new PartFactory());
         }
     }
 
-    public Part gatherPart(){
+    public PartFactory gatherPart(){
         if (!(junkParts.isEmpty())){
             return junkParts.pop();
         } else return null;
