@@ -8,8 +8,10 @@ import java.util.Map;
  */
 public class MadScientist {
     private int robotsReady = 0;
+    private String name;
     Map<Enum,Integer> details;
-    public MadScientist(){
+    public MadScientist(String msName){
+        name = msName;
         details = new HashMap<>();
         details.put(Part.HEAD, 0);
         details.put(Part.BODY, 0);
@@ -40,8 +42,13 @@ public class MadScientist {
                 details.get(Part.CPU) > 0 &&
                 details.get(Part.RAM) > 0 &&
                 details.get(Part.HDD) > 0){
+            System.out.println("<<< " + this.name + " собрал робота >>>");
             robotsReady += 1;
-            details.forEach((key, value) -> value--);
+            details.forEach((key, value) -> details.put(key, value - 1));
         }
+    }
+
+    public String getName(){
+        return name;
     }
 }

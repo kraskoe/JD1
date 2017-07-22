@@ -8,9 +8,15 @@ import java.util.Random;
 public class Gatherer implements Runnable {
     private JunkYard jy;
     private MadScientist ms;
-    public Gatherer(JunkYard jy, MadScientist ms){
+    String name;
+    Thread t;
+    public Gatherer(JunkYard jy, MadScientist ms, String threadName){
         this.jy = jy;
         this.ms = ms;
+        name = threadName;
+        t = new Thread(this, name);
+        System.out.println("Сборщик " + t.getName() + " вышел на работу");
+        t.start();
     }
 
     public void run(){
@@ -21,13 +27,14 @@ public class Gatherer implements Runnable {
                     PartFactory tempPartFactory;
                     if ((tempPartFactory = jy.gatherPart()) != null){
                         ms.details.put(tempPartFactory.getPart(), ms.details.get(tempPartFactory.getPart()) + 1);
+                        System.out.println("--- " + this.name + " поднял деталь ---");
                     }
                 }
                 ms.collectRobots();
-                Thread.sleep(100);
+                Thread.sleep(101);
             }
         } catch (InterruptedException ie){
-            ie.printStackTrace();
+            System.out.println("<--- Поток " + this.name + " прерван! --->");
         }
     }
 }

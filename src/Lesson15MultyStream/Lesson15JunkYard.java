@@ -5,18 +5,23 @@ package Lesson15MultyStream;
  */
 public class Lesson15JunkYard {
     public static void main(String[] args) {
-        MadScientist madScientist1 = new MadScientist();
-        MadScientist madScientist2 = new MadScientist();
+        MadScientist madScientist1 = new MadScientist("Безумный ученый 1");
+        MadScientist madScientist2 = new MadScientist("Безумный ученый 2");
         JunkYard myJunkYard = new JunkYard();
 
-        Gatherer gatherer1 = new Gatherer(myJunkYard, madScientist1);
-        Gatherer gatherer2 = new Gatherer(myJunkYard, madScientist2);
-        DetailsFactory myDetailsFactory = new DetailsFactory(myJunkYard);
-        new Thread(gatherer1).start();
-        new Thread(gatherer2).start();
-        new Thread(myDetailsFactory).start();
+        Gatherer gatherer1 = new Gatherer(myJunkYard, madScientist1, "Сборщик1");
+        Gatherer gatherer2 = new Gatherer(myJunkYard, madScientist2, "Сборщик2");
+        DetailsFactory myDetailsFactory = new DetailsFactory(myJunkYard, "Фабрика");
 
-        System.out.println(madScientist1.getRobotsReady());
-        System.out.println(madScientist2.getRobotsReady());
+        try {
+            gatherer1.t.join();
+            gatherer2.t.join();
+            myDetailsFactory.t.join();
+        } catch (InterruptedException ie) {
+            System.out.println("<--- Главный поток прерван! --->");
+        }
+
+        System.out.println(madScientist1.getName() + " собрал " + madScientist1.getRobotsReady() + " роботов");
+        System.out.println(madScientist2.getName() + " собрал " + madScientist2.getRobotsReady() + " роботов");
     }
 }

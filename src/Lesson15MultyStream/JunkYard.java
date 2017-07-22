@@ -19,6 +19,7 @@ public class JunkYard {
     public void throwDetails(int td){
         for (int i = 0; i < td; i++){
             junkParts.push(new PartFactory());
+            System.out.println("+++ Фабрика выбросила новую деталь +++");
         }
     }
 
