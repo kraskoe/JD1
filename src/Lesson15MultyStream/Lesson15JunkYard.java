@@ -9,8 +9,8 @@ public class Lesson15JunkYard {
         MadScientist madScientist2 = new MadScientist("Безумный ученый 2");
         JunkYard myJunkYard = new JunkYard();
 
-        Gatherer gatherer1 = new Gatherer(myJunkYard, madScientist1, "Сборщик1");
-        Gatherer gatherer2 = new Gatherer(myJunkYard, madScientist2, "Сборщик2");
+        Gatherer gatherer1 = new Gatherer(myJunkYard, madScientist1, "Сборщик 1");
+        Gatherer gatherer2 = new Gatherer(myJunkYard, madScientist2, "Сборщик 2");
         DetailsFactory myDetailsFactory = new DetailsFactory(myJunkYard, "Фабрика");
 
         try {
@@ -21,6 +21,7 @@ public class Lesson15JunkYard {
             System.out.println("<--- Главный поток прерван! --->");
         }
 
+        System.out.println("------------------------------------");
         System.out.println(madScientist1.getName() + " собрал " + madScientist1.getRobotsReady() + " роботов");
         System.out.println(madScientist2.getName() + " собрал " + madScientist2.getRobotsReady() + " роботов");
     }

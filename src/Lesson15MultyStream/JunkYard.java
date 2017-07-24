@@ -6,7 +6,7 @@ import java.util.Stack;
  * Created by ADMIN on 21.07.2017.
  */
 public class JunkYard {
-    public Stack<PartFactory> junkParts = new Stack<>();
+    private Stack<PartFactory> junkParts = new Stack<>();
     public JunkYard(int det){
         for (int i = 0; i < det; i++){
             junkParts.push(new PartFactory());
