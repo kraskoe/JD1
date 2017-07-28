@@ -14,7 +14,7 @@ public class Harbor {
         store = new Store(100);
     }
     public Harbor(){
-        this(new Random().nextInt(9) + 1);
+        this(new Random().nextInt(7) + 3);
     }
     public int getPiersNum(){
         return piersNum;
