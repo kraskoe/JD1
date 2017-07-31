@@ -1,6 +1,7 @@
 package Lesson17Array;
 
 import java.util.Arrays;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Created by ADMIN on 31.07.2017.
@@ -10,7 +11,8 @@ public class ArrayAnalizer extends Thread {
     int[] intArray;
     int tempValue, tempID;
     Thread t;
-    public ArrayAnalizer(int beg, int e, int[] intArr){
+    CountDownLatch cdl;
+    public ArrayAnalizer(int beg, int e, int[] intArr, CountDownLatch c){
         beginning = beg;
         end = e;
         intArray = intArr;
@@ -18,6 +20,7 @@ public class ArrayAnalizer extends Thread {
         tempValue = intArray[beg];
         t = this;
         t.start();
+        cdl = c;
     }
     public void run(){
         for (int i = beginning + 1; i < end; i++){
@@ -27,5 +30,6 @@ public class ArrayAnalizer extends Thread {
             }
         }
         TempArray.valuesMap.put(tempID, tempValue);
+        cdl.countDown();
     }
 }
