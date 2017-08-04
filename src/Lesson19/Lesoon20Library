@@ -74,9 +74,17 @@ WHERE authors.birth_date > '1900';
 DELETE FROM books WHERE name = 'Starship';
 
 SELECT concat(authors.name, " ", authors.surname) AS book_author, authors.origin,
-  (SELECT * FROM (SELECT AVG(books.pages) FROM books) AS av_p) AS average_pages FROM authors
+  AVG(books.pages) AS average_pages FROM authors
 #   (SELECT * FROM (SELECT AVG(books.pages) FROM books) AS av_p) AS average_pages FROM authors
   INNER JOIN shares ON author_id = authors.id
   INNER JOIN books ON title_id = books.id
 GROUP BY (authors.name)
-HAVING (SELECT AVG(books.pages) FROM books) > 200;
+HAVING AVG(books.pages) > 200;
+
+SELECT concat(authors.name, " ", authors.surname) AS book_author, authors.origin,
+  AVG(books.pages) AS average_pages FROM authors
+#   (SELECT * FROM (SELECT AVG(books.pages) FROM books) AS av_p) AS average_pages FROM authors
+  INNER JOIN shares ON author_id = authors.id
+  INNER JOIN books ON title_id = books.id
+GROUP BY (authors.name)
+HAVING average_pages > (SELECT AVG(books.pages) FROM books);
