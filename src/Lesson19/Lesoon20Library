@@ -18,7 +18,7 @@ PRIMARY KEY(id)
 CREATE TABLE shares (
   title_id INT,
   author_id INT,
-  royalty_share DOUBLE(3,2),
+  royalty_share DEC(3,2),
   FOREIGN KEY(title_id) REFERENCES books(id) ON DELETE CASCADE,
   FOREIGN KEY(author_id) REFERENCES authors(id) ON DELETE CASCADE
 );
@@ -66,10 +66,10 @@ SELECT DISTINCT books.name AS book_name, authors.origin FROM books
   INNER JOIN authors ON author_id = authors.id
 WHERE authors.origin = 'russian';
 
-SELECT DISTINCT books.name AS book_name, authors.birth_date FROM books
+SELECT DISTINCT books.name AS book_name FROM books
   INNER JOIN shares ON title_id = books.id
   INNER JOIN authors ON author_id = authors.id
-WHERE authors.birth_date > '1900';
+WHERE extract(year from authors.birth_date) > 1900;
 
 DELETE FROM books WHERE name = 'Starship';
 
