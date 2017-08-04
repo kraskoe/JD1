@@ -1,0 +1,49 @@
+CREATE DATABASE booksDB;
+USE booksDB;
+CREATE TABLE authors (
+  id INT AUTO_INCREMENT NOT NULL ,
+  name VARCHAR(100) NOT NULL ,
+  surname VARCHAR(100) NOT NULL ,
+  country VARCHAR(40) NOT NULL ,
+  PRIMARY KEY(id)
+);
+CREATE TABLE books (
+id INT AUTO_INCREMENT NOT NULL ,
+name VARCHAR(100) NOT NULL ,
+genre VARCHAR(20) NOT NULL ,
+year_of_publishing DATE NOT NULL ,
+authors_id INT NOT NULL ,
+PRIMARY KEY(id),
+FOREIGN KEY(authors_id) REFERENCES authors(id)
+);
+
+ALTER TABLE books CHANGE year_of_publishing date_of_publishing DATE;
+ALTER TABLE books CHANGE date_of_publishing date_of_publishing YEAR;
+
+INSERT INTO authors VALUES (NULL, 'Юрий', 'Никитин', 'Россия');
+INSERT INTO authors VALUES (NULL, 'Herbert', 'Wells', 'UK');
+INSERT INTO authors VALUES (NULL, 'Paul', 'Anderson', 'USA');
+INSERT INTO authors SET
+  name = 'Роман',
+  surname = 'Злотников',
+  country = 'Россия';
+INSERT INTO authors (name, surname, country) VALUES ('George', 'Martin', 'USA');
+
+INSERT INTO books VALUES (NULL, 'A song of ice and fire', 'fantasy', '1996', 3);
+INSERT INTO books VALUES (NULL, 'Шпаги над звездами', 'science fiction', '1998', 2);
+INSERT INTO books VALUES (NULL, 'Восставший из пепла', 'science fiction', '2000', 2);
+INSERT INTO books VALUES (NULL, 'И пришел многоликий', 'science fiction', '2001', 2);
+INSERT INTO books VALUES (NULL, 'Последний рейд', 'science fiction', '2003', 2);
+INSERT INTO books VALUES (NULL, 'Артания', 'fantasy', '2002', 1);
+INSERT INTO books VALUES (NULL, 'Придон', 'fantasy', '2002', 1);
+INSERT INTO books VALUES (NULL, 'Куявия', 'fantasy', '2003', 1);
+INSERT INTO books VALUES (NULL, 'The time machine', 'science fiction', '1995', 4);
+INSERT INTO books VALUES (NULL, 'The invisible man', 'science fiction', '1969', 4);
+INSERT INTO books VALUES (NULL, 'Starship', 'science fiction', '1956', 5);
+
+SELECT books.name, authors.name FROM books, authors WHERE authors_id = authors.id ORDER BY books.date_of_publishing;
+SELECT books.name, authors.name FROM books, authors WHERE authors_id = authors.id ORDER BY books.date_of_publishing DESC;
+
+SELECT authors.name, COUNT(books.name) AS books_count FROM authors, books WHERE authors_id = authors.id GROUP BY (books.authors_id);
+SELECT authors.name, COUNT(books.name) AS books_count FROM authors, books WHERE authors_id = authors.id
+AND authors_id = 2 GROUP BY (books.authors_id);

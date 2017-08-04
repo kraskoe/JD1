@@ -1,0 +1,13 @@
+USE javastudy;
+SELECT * FROM countries WHERE `population, mln ppl` > 50;
+SELECT * FROM countries ORDER BY `population, mln ppl`;
+SELECT SUM(`population, mln ppl`) FROM countries ORDER BY `square, ths km2` LIMIT 5;
+UPDATE countries SET `official language` = "belarussian" WHERE name = "Belarus";
+UPDATE countries SET `official language` = "russian" WHERE name = "Belarus";
+# DELETE FROM countries WHERE `population, mln ppl` = (select max_p.p from (SELECT MAX(`population, mln ppl`) as p FROM countries) max_p);
+DELETE FROM countries WHERE `population, mln ppl` = (SELECT * FROM (SELECT MAX(`population, mln ppl`) FROM countries) AS max_ppl);
+INSERT INTO countries SET
+  name = "China",
+  `population, mln ppl` = 9640.8,
+  `square, ths km2` = 1384.6,
+  `official language` = "chinese";

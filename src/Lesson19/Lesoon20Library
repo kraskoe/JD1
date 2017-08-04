@@ -1,0 +1,82 @@
+CREATE DATABASE booksDB2;
+USE booksDB2;
+CREATE TABLE authors (
+  id INT AUTO_INCREMENT NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  surname VARCHAR(100) NOT NULL,
+  birth_date DATE NOT NULL,
+  origin VARCHAR(40) NOT NULL,
+  PRIMARY KEY(id)
+);
+CREATE TABLE books (
+id INT AUTO_INCREMENT NOT NULL,
+name VARCHAR(100) NOT NULL,
+genre VARCHAR(20) NOT NULL,
+pages INT NOT NULL,
+PRIMARY KEY(id)
+);
+CREATE TABLE shares (
+  title_id INT,
+  author_id INT,
+  royalty_share DOUBLE(3,2),
+  FOREIGN KEY(title_id) REFERENCES books(id) ON DELETE CASCADE,
+  FOREIGN KEY(author_id) REFERENCES authors(id) ON DELETE CASCADE
+);
+
+INSERT INTO authors VALUES (NULL, 'Юрий', 'Никитин', '1925-07-23', 'russian');
+INSERT INTO authors VALUES (NULL, 'Herbert', 'Wells', '1848-08-16', 'englishman');
+INSERT INTO authors VALUES (NULL, 'Paul', 'Anderson', '1916-09-15', 'american');
+INSERT INTO authors VALUES (NULL, 'Роман', 'Злотников', '1957-09-17', 'russian');
+INSERT INTO authors VALUES (NULL, 'George', 'Martin', '1939-02-01', 'american');
+
+INSERT INTO books VALUES (NULL, 'A song of ice and fire', 'fantasy', 315);
+INSERT INTO books VALUES (NULL, 'Шпаги над звездами', 'science fiction', 117);
+INSERT INTO books VALUES (NULL, 'Восставший из пепла', 'science fiction', 265);
+INSERT INTO books VALUES (NULL, 'И пришел многоликий', 'science fiction', 198);
+INSERT INTO books VALUES (NULL, 'Последний рейд', 'science fiction', 311);
+INSERT INTO books VALUES (NULL, 'Артания', 'fantasy', 248);
+INSERT INTO books VALUES (NULL, 'Придон', 'fantasy', 274);
+INSERT INTO books VALUES (NULL, 'Куявия', 'fantasy', 291);
+INSERT INTO books VALUES (NULL, 'The time machine', 'science fiction', 184);
+INSERT INTO books VALUES (NULL, 'The invisible man', 'science fiction', 259);
+INSERT INTO books VALUES (NULL, 'Starship', 'science fiction', 95);
+
+INSERT INTO shares VALUES (1, 5, 1);
+INSERT INTO shares VALUES (2, 4, 0.5);
+INSERT INTO shares VALUES (2, 1, 0.5);
+INSERT INTO shares VALUES (3, 4, 1);
+INSERT INTO shares VALUES (4, 4, 1);
+INSERT INTO shares VALUES (5, 4, 1);
+INSERT INTO shares VALUES (6, 4, 0.3);
+INSERT INTO shares VALUES (6, 1, 0.3);
+INSERT INTO shares VALUES (6, 2, 0.4);
+INSERT INTO shares VALUES (7, 4, 0.5);
+INSERT INTO shares VALUES (7, 1, 0.5);
+INSERT INTO shares VALUES (8, 1, 1);
+INSERT INTO shares VALUES (9, 2, 1);
+INSERT INTO shares VALUES (10, 2, 1);
+INSERT INTO shares VALUES (11, 3, 1);
+
+SELECT concat(authors.name, " ", authors.surname) AS book_author, books.name AS book_name FROM authors
+INNER JOIN shares ON author_id = authors.id
+INNER JOIN books ON title_id = books.id;
+
+SELECT DISTINCT books.name AS book_name, authors.origin FROM books
+  INNER JOIN shares ON title_id = books.id
+  INNER JOIN authors ON author_id = authors.id
+WHERE authors.origin = 'russian';
+
+SELECT DISTINCT books.name AS book_name, authors.birth_date FROM books
+  INNER JOIN shares ON title_id = books.id
+  INNER JOIN authors ON author_id = authors.id
+WHERE authors.birth_date > '1900';
+
+DELETE FROM books WHERE name = 'Starship';
+
+SELECT concat(authors.name, " ", authors.surname) AS book_author, authors.origin,
+  (SELECT * FROM (SELECT AVG(books.pages) FROM books) AS av_p) AS average_pages FROM authors
+#   (SELECT * FROM (SELECT AVG(books.pages) FROM books) AS av_p) AS average_pages FROM authors
+  INNER JOIN shares ON author_id = authors.id
+  INNER JOIN books ON title_id = books.id
+GROUP BY (authors.name)
+HAVING (SELECT AVG(books.pages) FROM books) > 200;
